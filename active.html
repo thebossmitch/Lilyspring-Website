@@ -1,0 +1,1740 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="ACERO EduCore School Management Portal">
+
+    <meta name="referrer"
+        content="strict-origin-when-cross-origin">
+
+    <title>ACERO EduCore — School Management Portal</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <script>
+
+        tailwind.config = {
+
+            darkMode: 'class',
+
+            theme: {
+
+                extend: {
+
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif']
+                    },
+
+                    colors: {
+
+                        brand: {
+
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b'
+
+                        }
+
+                    },
+
+                    boxShadow: {
+
+                        soft:
+                            '0 12px 40px rgba(15,23,42,.08)',
+
+                        glow:
+                            '0 0 35px rgba(16,185,129,.18)'
+
+                    }
+
+                }
+
+            }
+
+        };
+
+    </script>
+
+
+    <style>
+
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: #334155 transparent;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+
+        body {
+
+            font-family: Inter, sans-serif;
+
+            color: #0f172a;
+
+            overflow-x: hidden;
+
+        }
+
+
+        /* =====================================================
+           SCHOOL BACKGROUND
+        ===================================================== */
+
+        .school-background {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -10;
+
+            overflow: hidden;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(236,253,245,.97),
+                    rgba(255,255,255,.94),
+                    rgba(240,253,250,.96)
+                );
+
+        }
+
+
+        /* =====================================================
+           SCHOOL IMAGE PLACEHOLDER
+           
+           CHANGE THIS IMAGE ONLY
+        ===================================================== */
+
+        .school-background-image {
+
+            position: absolute;
+
+            inset: 0;
+
+            background-image:
+
+                url("YOUR-SCHOOL-BACKGROUND.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            opacity: .28;
+
+            filter: saturate(.9);
+
+        }
+
+
+        /* =====================================================
+           GRADIENT OVERLAY
+        ===================================================== */
+
+        .school-gradient {
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(5,150,105,.78) 0%,
+                    rgba(16,185,129,.35) 28%,
+                    rgba(255,255,255,.72) 60%,
+                    rgba(20,184,166,.38) 100%
+                );
+
+        }
+
+
+        /* =====================================================
+           WHITE READABILITY OVERLAY
+        ===================================================== */
+
+        .school-readability {
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    rgba(255,255,255,.78) 0%,
+                    rgba(255,255,255,.42) 42%,
+                    rgba(255,255,255,.12) 100%
+                );
+
+        }
+
+
+        /* =====================================================
+           ANIMATED GRADIENT ORBS
+        ===================================================== */
+
+        .background-orb {
+
+            position: absolute;
+
+            border-radius: 9999px;
+
+            filter: blur(75px);
+
+            pointer-events: none;
+
+            animation:
+                floatingOrb 12s ease-in-out infinite;
+
+        }
+
+
+        .orb-one {
+
+            width: 360px;
+
+            height: 360px;
+
+            top: -120px;
+
+            left: -100px;
+
+            background:
+                rgba(16,185,129,.30);
+
+        }
+
+
+        .orb-two {
+
+            width: 420px;
+
+            height: 420px;
+
+            right: -150px;
+
+            top: 15%;
+
+            background:
+                rgba(20,184,166,.25);
+
+            animation-delay: -4s;
+
+        }
+
+
+        .orb-three {
+
+            width: 350px;
+
+            height: 350px;
+
+            left: 30%;
+
+            bottom: -180px;
+
+            background:
+                rgba(5,150,105,.22);
+
+            animation-delay: -8s;
+
+        }
+
+
+        @keyframes floatingOrb {
+
+            0%,
+            100% {
+
+                transform:
+                    translate3d(0,0,0)
+                    scale(1);
+
+            }
+
+            50% {
+
+                transform:
+                    translate3d(25px,-25px,0)
+                    scale(1.08);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           SCHOOL ICON PATTERN
+        ===================================================== */
+
+        .school-pattern {
+
+            position: absolute;
+
+            inset: -100px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 110px;
+
+            padding: 70px;
+
+            transform:
+                rotate(-8deg)
+                scale(1.15);
+
+            opacity: .035;
+
+            font-size: 70px;
+
+            color: #047857;
+
+            pointer-events: none;
+
+        }
+
+
+        .school-pattern i {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+        /* =====================================================
+           GLASS UI
+        ===================================================== */
+
+        .glass {
+
+            background:
+                rgba(255,255,255,.78);
+
+            backdrop-filter:
+                blur(22px)
+                saturate(140%);
+
+            -webkit-backdrop-filter:
+                blur(22px)
+                saturate(140%);
+
+            border:
+                1px solid
+                rgba(255,255,255,.65);
+
+            box-shadow:
+                0 25px 70px
+                rgba(15,23,42,.12);
+
+        }
+
+
+        /* =====================================================
+           LOGIN CARD
+        ===================================================== */
+
+        .login-card {
+
+            animation:
+                loginCardIn
+                .7s
+                cubic-bezier(.2,.8,.2,1)
+                both;
+
+        }
+
+
+        @keyframes loginCardIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(25px)
+                    scale(.97);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           LOGO GLOW
+        ===================================================== */
+
+        .school-logo {
+
+            position: relative;
+
+            box-shadow:
+                0 0 0 8px
+                rgba(16,185,129,.08),
+
+                0 15px 35px
+                rgba(5,150,105,.25);
+
+        }
+
+
+        /* =====================================================
+           INPUTS
+        ===================================================== */
+
+        input,
+        select,
+        textarea {
+
+            outline: none;
+
+            transition:
+                border-color .2s,
+                box-shadow .2s,
+                background .2s;
+
+        }
+
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+
+            border-color:
+                #10b981 !important;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(16,185,129,.10);
+
+        }
+
+
+        /* =====================================================
+           ROLE BUTTONS
+        ===================================================== */
+
+        .login-role {
+
+            transition:
+                all .25s ease;
+
+        }
+
+
+        .login-role:hover {
+
+            transform:
+                translateY(-2px);
+
+        }
+
+
+        /* =====================================================
+           BUTTON
+        ===================================================== */
+
+        .login-button {
+
+            position: relative;
+
+            overflow: hidden;
+
+        }
+
+
+        .login-button::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    transparent,
+                    rgba(255,255,255,.25),
+                    transparent
+                );
+
+            transform:
+                translateX(-100%);
+
+            transition:
+                transform .6s;
+
+        }
+
+
+        .login-button:hover::before {
+
+            transform:
+                translateX(100%);
+
+        }
+
+
+        /* =====================================================
+           PAGE ANIMATION
+        ===================================================== */
+
+        .page-enter {
+
+            animation:
+                pageIn
+                .35s
+                ease
+                both;
+
+        }
+
+
+        @keyframes pageIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(8px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           MODAL
+        ===================================================== */
+
+        .modal-enter {
+
+            animation:
+                modalIn
+                .3s
+                ease
+                both;
+
+        }
+
+
+        @keyframes modalIn {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(.96)
+                    translateY(12px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    translateY(0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           PULSE
+        ===================================================== */
+
+        .pulse-dot {
+
+            animation:
+                pulse
+                2s
+                infinite;
+
+        }
+
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+
+                box-shadow:
+                    0 0 0 0
+                    rgba(16,185,129,.35);
+
+            }
+
+            50% {
+
+                box-shadow:
+                    0 0 0 7px
+                    rgba(16,185,129,0);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           DARK MODE
+        ===================================================== */
+
+        .dark .school-background {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #022c22,
+                    #020617,
+                    #042f2e
+                );
+
+        }
+
+
+        .dark .school-background-image {
+
+            opacity: .18;
+
+            filter:
+                brightness(.55)
+                saturate(.8);
+
+        }
+
+
+        .dark .school-gradient {
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    rgba(2,44,34,.90),
+                    rgba(6,78,59,.55),
+                    rgba(2,6,23,.88),
+                    rgba(4,47,46,.75)
+                );
+
+        }
+
+
+        .dark .school-readability {
+
+            background:
+
+                radial-gradient(
+                    circle at center,
+                    rgba(2,6,23,.20),
+                    rgba(2,6,23,.72)
+                );
+
+        }
+
+
+        .dark .school-pattern {
+
+            color:
+                #34d399;
+
+            opacity:
+                .035;
+
+        }
+
+
+        .dark .glass {
+
+            background:
+                rgba(15,23,42,.72);
+
+            border-color:
+                rgba(148,163,184,.14);
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,.30);
+
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 640px) {
+
+            .school-pattern {
+
+                grid-template-columns:
+                    repeat(3, 1fr);
+
+                gap: 70px;
+
+                font-size: 50px;
+
+            }
+
+
+            .background-orb {
+
+                filter:
+                    blur(60px);
+
+            }
+
+        }
+
+
+        /* =====================================================
+           REDUCE MOTION
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    .01ms !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body id="appBody"
+      class="min-h-screen text-slate-900 dark:text-slate-100">
+
+
+    <!-- =====================================================
+         SCHOOL BACKGROUND
+    ====================================================== -->
+
+    <div class="school-background">
+
+        <!--
+            =================================================
+            SCHOOL IMAGE PLACEHOLDER
+            =================================================
+
+            Replace:
+
+            YOUR-SCHOOL-BACKGROUND.jpg
+
+            with your actual image.
+
+            Example:
+
+            images/school-building.jpg
+
+            or:
+
+            assets/images/school.jpg
+
+            =================================================
+        -->
+
+        <div class="school-background-image"></div>
+
+
+        <!-- Gradient -->
+        <div class="school-gradient"></div>
+
+
+        <!-- Readability -->
+        <div class="school-readability"></div>
+
+
+        <!-- Animated orbs -->
+        <div class="background-orb orb-one"></div>
+
+        <div class="background-orb orb-two"></div>
+
+        <div class="background-orb orb-three"></div>
+
+
+        <!-- School pattern -->
+
+        <div class="school-pattern">
+
+            <i class="fa-solid fa-school"></i>
+
+            <i class="fa-solid fa-book-open"></i>
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+            <i class="fa-solid fa-pen"></i>
+
+            <i class="fa-solid fa-book"></i>
+
+            <i class="fa-solid fa-school"></i>
+
+            <i class="fa-solid fa-chalkboard"></i>
+
+            <i class="fa-solid fa-user-graduate"></i>
+
+            <i class="fa-solid fa-ruler"></i>
+
+            <i class="fa-solid fa-pencil"></i>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         AUTHENTICATION
+    ====================================================== -->
+
+    <div id="authOverlay"
+         class="fixed inset-0 z-[100]
+                flex items-center justify-center
+                p-4">
+
+        <div
+            class="login-card
+                   glass
+                   w-full
+                   max-w-md
+                   rounded-[2rem]
+                   p-6 sm:p-8
+                   text-slate-900
+                   dark:text-white">
+
+
+            <!-- SCHOOL BRAND -->
+
+            <div class="flex items-center gap-4 mb-7">
+
+                <div
+                    class="school-logo
+                           w-14 h-14
+                           rounded-2xl
+                           bg-gradient-to-br
+                           from-emerald-500
+                           via-teal-500
+                           to-emerald-700
+                           text-white
+                           grid
+                           place-items-center
+                           text-xl">
+
+                    <i class="fa-solid fa-school"></i>
+
+                </div>
+
+
+                <div>
+
+                    <p
+                        class="text-[10px]
+                               uppercase
+                               tracking-[.25em]
+                               font-bold
+                               text-emerald-600">
+
+                        ACERO
+
+                    </p>
+
+                    <h1
+                        class="font-extrabold
+                               text-xl">
+
+                        EduCore
+
+                    </h1>
+
+                    <p
+                        class="text-xs
+                               text-slate-500
+                               dark:text-slate-400">
+
+                        School Management Portal
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SECURITY NOTICE -->
+
+            <div
+                class="p-3
+                       rounded-2xl
+                       bg-amber-500/10
+                       border
+                       border-amber-500/20
+                       text-amber-700
+                       dark:text-amber-300
+                       text-xs
+                       mb-5">
+
+                <i class="fa-solid fa-shield-halved mr-1"></i>
+
+                Role permissions are enforced throughout
+                this interface.
+
+            </div>
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm"
+                  class="space-y-4"
+                  novalidate>
+
+
+                <!-- ROLE -->
+
+                <div>
+
+                    <label
+                        class="text-xs
+                               font-semibold">
+
+                        Sign in as
+
+                    </label>
+
+
+                    <div
+                        class="grid
+                               grid-cols-2
+                               gap-2
+                               mt-2">
+
+                        <button
+                            type="button"
+                            data-login-role="admin"
+                            class="login-role
+                                   px-3
+                                   py-3
+                                   rounded-xl
+                                   border
+                                   text-xs
+                                   font-bold">
+
+                            <i class="fa-solid fa-user-shield mr-1"></i>
+
+                            School Admin
+
+                        </button>
+
+
+                        <button
+                            type="button"
+                            data-login-role="director"
+                            class="login-role
+                                   px-3
+                                   py-3
+                                   rounded-xl
+                                   border
+                                   text-xs
+                                   font-bold">
+
+                            <i class="fa-solid fa-user-tie mr-1"></i>
+
+                            Director
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EMAIL -->
+
+                <div>
+
+                    <label
+                        for="loginEmail"
+                        class="text-xs
+                               font-semibold">
+
+                        Email
+
+                    </label>
+
+                    <input
+                        id="loginEmail"
+                        type="email"
+                        autocomplete="username"
+                        required
+                        placeholder="Enter your email"
+                        class="mt-1
+                               w-full
+                               rounded-xl
+                               border
+                               border-slate-200
+                               dark:border-slate-700
+                               bg-white/70
+                               dark:bg-slate-900/70
+                               px-3
+                               py-3
+                               text-sm">
+
+                </div>
+
+
+                <!-- PASSWORD -->
+
+                <div>
+
+                    <label
+                        for="loginPassword"
+                        class="text-xs
+                               font-semibold">
+
+                        Password
+
+                    </label>
+
+                    <input
+                        id="loginPassword"
+                        type="password"
+                        autocomplete="current-password"
+                        required
+                        placeholder="Enter your password"
+                        class="mt-1
+                               w-full
+                               rounded-xl
+                               border
+                               border-slate-200
+                               dark:border-slate-700
+                               bg-white/70
+                               dark:bg-slate-900/70
+                               px-3
+                               py-3
+                               text-sm">
+
+                </div>
+
+
+                <!-- DEMO INFO -->
+
+                <div
+                    class="rounded-2xl
+                           border
+                           border-emerald-500/20
+                           bg-emerald-500/5
+                           px-3
+                           py-2
+                           text-[11px]
+                           text-emerald-700
+                           dark:text-emerald-300">
+
+                    <i class="fa-solid fa-circle-info mr-1"></i>
+
+                    Demo credentials:
+                    admin@acero.com / admin123
+
+                </div>
+
+
+                <!-- LOGIN -->
+
+                <button
+                    type="submit"
+                    class="login-button
+                           w-full
+                           rounded-xl
+                           bg-gradient-to-r
+                           from-emerald-500
+                           to-teal-600
+                           hover:from-emerald-600
+                           hover:to-teal-700
+                           text-white
+                           font-bold
+                           py-3.5
+                           shadow-glow
+                           transition-all">
+
+                    <i class="fa-solid fa-right-to-bracket mr-2"></i>
+
+                    Sign in securely
+
+                </button>
+
+
+            </form>
+
+
+            <!-- FOOTER -->
+
+            <p
+                class="text-center
+                       text-[10px]
+                       text-slate-400
+                       mt-6">
+
+                Protected school administration environment
+
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         DASHBOARD APP
+    ====================================================== -->
+
+    <div id="appShell"
+         class="hidden min-h-screen page-enter">
+
+
+        <!-- HEADER -->
+
+        <header
+            class="sticky
+                   top-0
+                   z-40
+                   border-b
+                   border-white/50
+                   bg-white/70
+                   backdrop-blur-xl
+                   dark:border-slate-800/50
+                   dark:bg-slate-950/70">
+
+            <div
+                class="mx-auto
+                       flex
+                       max-w-7xl
+                       items-center
+                       justify-between
+                       px-4
+                       py-4
+                       sm:px-6
+                       lg:px-8">
+
+
+                <!-- BRAND -->
+
+                <div>
+
+                    <p
+                        class="text-xs
+                               font-semibold
+                               uppercase
+                               tracking-[0.2em]
+                               text-emerald-600">
+
+                        ACERO EduCore
+
+                    </p>
+
+                    <h2
+                        class="mt-1
+                               text-xl
+                               font-extrabold">
+
+                        School Management Portal
+
+                    </h2>
+
+                </div>
+
+
+                <!-- USER -->
+
+                <div
+                    class="flex
+                           items-center
+                           gap-3">
+
+                    <div
+                        class="rounded-full
+                               border
+                               border-emerald-200
+                               bg-emerald-50
+                               px-3
+                               py-1
+                               text-xs
+                               font-semibold
+                               text-emerald-700
+                               dark:border-emerald-900
+                               dark:bg-emerald-950/40
+                               dark:text-emerald-300">
+
+                        <i class="fa-solid fa-user mr-1"></i>
+
+                        <span id="userRoleBadge">
+                            Admin
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        id="logoutBtn"
+                        type="button"
+                        class="rounded-xl
+                               border
+                               border-slate-200
+                               bg-white/80
+                               px-3
+                               py-2
+                               text-sm
+                               font-semibold
+                               text-slate-700
+                               transition
+                               hover:border-emerald-300
+                               hover:text-emerald-700
+                               dark:border-slate-700
+                               dark:bg-slate-900
+                               dark:text-slate-200">
+
+                        <i class="fa-solid fa-right-from-bracket mr-1"></i>
+
+                        Log out
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- MAIN -->
+
+        <main
+            class="mx-auto
+                   max-w-7xl
+                   px-4
+                   py-8
+                   sm:px-6
+                   lg:px-8">
+
+
+            <div
+                class="rounded-[2rem]
+                       border
+                       border-white/60
+                       bg-white/70
+                       backdrop-blur-xl
+                       p-8
+                       shadow-soft
+                       dark:border-slate-800/50
+                       dark:bg-slate-900/70">
+
+
+                <p
+                    class="text-xs
+                           font-bold
+                           uppercase
+                           tracking-[0.2em]
+                           text-emerald-600">
+
+                    Welcome
+
+                </p>
+
+
+                <h3
+                    id="welcomeTitle"
+                    class="mt-3
+                           text-3xl
+                           font-extrabold">
+
+                    Dashboard
+
+                </h3>
+
+
+                <p
+                    id="welcomeText"
+                    class="mt-3
+                           max-w-2xl
+                           text-sm
+                           text-slate-600
+                           dark:text-slate-300">
+
+                    You are signed in.
+
+                </p>
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <script>
+
+        const STORAGE_KEY =
+            'aceroEduCoreUser';
+
+
+        const demoUsers = [
+
+            {
+                email: 'admin@acero.com',
+                password: 'admin123',
+                role: 'admin',
+                name: 'School Admin'
+            },
+
+            {
+                email: 'director@acero.com',
+                password: 'director123',
+                role: 'director',
+                name: 'Director'
+            }
+
+        ];
+
+
+        const authOverlay =
+            document.getElementById('authOverlay');
+
+        const appShell =
+            document.getElementById('appShell');
+
+        const loginForm =
+            document.getElementById('loginForm');
+
+        const loginRoleButtons =
+            document.querySelectorAll('.login-role');
+
+        const userRoleBadge =
+            document.getElementById('userRoleBadge');
+
+        const welcomeTitle =
+            document.getElementById('welcomeTitle');
+
+        const welcomeText =
+            document.getElementById('welcomeText');
+
+        const logoutBtn =
+            document.getElementById('logoutBtn');
+
+
+        let selectedRole = 'admin';
+
+
+        /* =========================================
+           SELECT ROLE
+        ========================================= */
+
+        function setSelectedRole(role) {
+
+            selectedRole = role;
+
+
+            loginRoleButtons.forEach(button => {
+
+                const active =
+                    button.dataset.loginRole === role;
+
+
+                button.classList.toggle(
+                    'bg-emerald-500',
+                    active
+                );
+
+                button.classList.toggle(
+                    'text-white',
+                    active
+                );
+
+                button.classList.toggle(
+                    'border-emerald-500',
+                    active
+                );
+
+
+                if (!active) {
+
+                    button.classList.add(
+                        'bg-white/70',
+                        'text-slate-700',
+                        'border-slate-200',
+                        'dark:bg-slate-900/70',
+                        'dark:text-slate-200',
+                        'dark:border-slate-700'
+                    );
+
+                }
+
+                else {
+
+                    button.classList.remove(
+                        'bg-white/70',
+                        'text-slate-700',
+                        'border-slate-200',
+                        'dark:bg-slate-900/70',
+                        'dark:text-slate-200',
+                        'dark:border-slate-700'
+                    );
+
+                }
+
+            });
+
+        }
+
+
+        /* =========================================
+           GET SESSION
+        ========================================= */
+
+        function getLoggedUser() {
+
+            try {
+
+                return JSON.parse(
+                    localStorage.getItem(
+                        STORAGE_KEY
+                    )
+                );
+
+            }
+
+            catch (error) {
+
+                return null;
+
+            }
+
+        }
+
+
+        /* =========================================
+           SAVE SESSION
+        ========================================= */
+
+        function saveLoggedUser(user) {
+
+            localStorage.setItem(
+                STORAGE_KEY,
+                JSON.stringify(user)
+            );
+
+        }
+
+
+        /* =========================================
+           CLEAR SESSION
+        ========================================= */
+
+        function clearLoggedUser() {
+
+            localStorage.removeItem(
+                STORAGE_KEY
+            );
+
+        }
+
+
+        /* =========================================
+           SHOW PORTAL
+        ========================================= */
+
+        function showPortal(user) {
+
+            authOverlay.classList.add(
+                'hidden'
+            );
+
+            appShell.classList.remove(
+                'hidden'
+            );
+
+
+            const roleLabel =
+                user.role === 'admin'
+                    ? 'Admin'
+                    : 'Director';
+
+
+            userRoleBadge.textContent =
+                roleLabel;
+
+
+            welcomeTitle.textContent =
+                'Welcome back, ' +
+                user.name;
+
+
+            welcomeText.textContent =
+                'Signed in as ' +
+                roleLabel +
+                ' through the school management portal.';
+
+        }
+
+
+        /* =========================================
+           HIDE PORTAL
+        ========================================= */
+
+        function hidePortal() {
+
+            authOverlay.classList.remove(
+                'hidden'
+            );
+
+            appShell.classList.add(
+                'hidden'
+            );
+
+        }
+
+
+        /* =========================================
+           ROLE BUTTON EVENTS
+        ========================================= */
+
+        loginRoleButtons.forEach(button => {
+
+            button.addEventListener(
+                'click',
+                () => {
+
+                    setSelectedRole(
+                        button.dataset.loginRole
+                    );
+
+                }
+            );
+
+        });
+
+
+        /* =========================================
+           LOGIN
+        ========================================= */
+
+        loginForm.addEventListener(
+            'submit',
+            function(event) {
+
+                event.preventDefault();
+
+
+                const email =
+                    document
+                        .getElementById(
+                            'loginEmail'
+                        )
+                        .value
+                        .trim()
+                        .toLowerCase();
+
+
+                const password =
+                    document
+                        .getElementById(
+                            'loginPassword'
+                        )
+                        .value
+                        .trim();
+
+
+                if (!email || !password) {
+
+                    alert(
+                        'Please enter both email and password.'
+                    );
+
+                    return;
+
+                }
+
+
+                const matchedUser =
+                    demoUsers.find(user => {
+
+                        return (
+                            user.email === email &&
+                            user.password === password &&
+                            user.role === selectedRole
+                        );
+
+                    });
+
+
+                if (!matchedUser) {
+
+                    alert(
+                        'Invalid credentials for the selected role.'
+                    );
+
+                    return;
+
+                }
+
+
+                const userSession = {
+
+                    email:
+                        matchedUser.email,
+
+                    role:
+                        matchedUser.role,
+
+                    name:
+                        matchedUser.name
+
+                };
+
+
+                saveLoggedUser(
+                    userSession
+                );
+
+
+                showPortal(
+                    userSession
+                );
+
+
+                loginForm.reset();
+
+            }
+        );
+
+
+        /* =========================================
+           LOGOUT
+        ========================================= */
+
+        logoutBtn.addEventListener(
+            'click',
+            function() {
+
+                clearLoggedUser();
+
+                hidePortal();
+
+            }
+        );
+
+
+        /* =========================================
+           INITIALIZE
+        ========================================= */
+
+        setSelectedRole(
+            selectedRole
+        );
+
+
+        const savedUser =
+            getLoggedUser();
+
+
+        if (savedUser) {
+
+            showPortal(
+                savedUser
+            );
+
+        }
+
+        else {
+
+            hidePortal();
+
+        }
+
+    </script>
+
+</body>
+
+</html>
+```

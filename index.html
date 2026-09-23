@@ -1,0 +1,3863 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lilyspring International School | Excellence in Basic Education</title>
+    <meta name="description" content="Lilyspring International School provides quality primary and secondary education with online admissions for the 2026/2027 academic session.">
+    <meta name="keywords" content="Lilyspring International School, school admission, primary school, secondary school, Nigeria">
+    <meta property="og:title" content="Lilyspring International School">
+    <meta property="og:description" content="Quality basic and secondary education with a simple online admission portal.">
+    <meta property="og:type" content="website">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#1e1b4b', // Deep Royal Navy/Indigo
+                            indigo: '#2e1065', // Dark accent
+                            violet: '#8b5cf6', // Soft Violet
+                            accent: '#f97316', // Warm Gold/Orange
+                            accentHover: '#ea580c',
+                            bg: '#f8f7ff', // Soft lavender white backdrop
+                            card: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #f8f7ff;
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+
+        .font-serif-heading {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .bg-doodle-pattern {
+            background-image: radial-gradient(#8b5cf6 0.75px, transparent 0.75px), radial-gradient(#8b5cf6 0.75px, #f8f7ff 0.75px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.12;
+        }
+
+        .hero-circle-bg {
+            background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+        }
+
+        .hero-circle-bg-2 {
+            background: linear-gradient(135deg, #8b5cf6 0%, #c084fc 100%);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .glass-badge {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 20px 25px -5px rgba(30, 27, 75, 0.08), 0 8px 10px -6px rgba(30, 27, 75, 0.05);
+        }
+
+        @keyframes subtle-float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+        }
+
+        .animate-float {
+            animation: subtle-float 5s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: subtle-float 6s ease-in-out 2s infinite;
+        }
+
+        .gallery-track {
+            animation: gallery-scroll 32s linear infinite;
+            width: max-content;
+        }
+
+        .gallery-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes gallery-scroll {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .gallery-track,
+            .animate-float,
+            .animate-float-delayed {
+                animation: none;
+            }
+        }
+
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #printableSlip, #printableSlip * {
+                visibility: visible;
+            }
+            #printableSlip {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                box-shadow: none !important;
+                border: 1px solid #ddd !important;
+            }
+        }
+
+        /* ===== MODERN UI SYSTEM ===== */
+        :root {
+            --ui-navy: #17143d;
+            --ui-purple: #7c3aed;
+            --ui-violet: #8b5cf6;
+            --ui-orange: #f97316;
+            --ui-surface: rgba(255,255,255,.78);
+            --ui-border: rgba(124,58,237,.12);
+            --ui-shadow: 0 24px 70px rgba(30, 27, 75, .10);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background:
+                radial-gradient(circle at 10% 0%, rgba(139,92,246,.08), transparent 30%),
+                radial-gradient(circle at 90% 15%, rgba(249,115,22,.07), transparent 28%),
+                #f8f7ff;
+        }
+
+        ::selection {
+            background: rgba(124,58,237,.18);
+            color: var(--ui-navy);
+        }
+
+        .modern-card {
+            background: var(--ui-surface);
+            border: 1px solid var(--ui-border);
+            box-shadow: var(--ui-shadow);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .modern-section {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .modern-section::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background:
+                linear-gradient(120deg, rgba(124,58,237,.025), transparent 35%, rgba(249,115,22,.025));
+        }
+
+        .section-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: .55rem;
+            padding: .45rem .8rem;
+            border: 1px solid rgba(124,58,237,.12);
+            border-radius: 999px;
+            background: rgba(255,255,255,.72);
+            color: #7c3aed;
+            font-size: .68rem;
+            font-weight: 800;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            box-shadow: 0 10px 30px rgba(30,27,75,.06);
+        }
+
+        .section-kicker::before {
+            content: "";
+            width: .45rem;
+            height: .45rem;
+            border-radius: 50%;
+            background: #f97316;
+            box-shadow: 0 0 0 5px rgba(249,115,22,.10);
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .75s ease, transform .75s ease;
+        }
+
+        .reveal-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-up {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+        }
+
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col antialiased">
+
+    <!-- Background Pattern -->
+    <div class="fixed inset-0 bg-doodle-pattern pointer-events-none z-0"></div>
+
+    <!-- Dynamic Toast Notification Container -->
+    <div id="toastContainer" class="fixed top-24 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+<!-- =========================================================
+     MODERN HEADER / NAVIGATION
+     Conflict-safe version
+========================================================= -->
+
+<header
+    id="mainHeader"
+    class="fixed inset-x-0 top-0 z-[1000] px-3 pt-3 sm:px-5 lg:px-6"
+>
+
+    <div
+        id="navContainer"
+        class="mx-auto max-w-7xl overflow-hidden rounded-2xl border border-white/70 bg-white/90 shadow-[0_12px_45px_rgba(30,27,75,0.08)] backdrop-blur-2xl"
+    >
+
+        <!-- =====================================================
+             MAIN NAV BAR
+        ====================================================== -->
+
+        <div
+            id="navBar"
+            class="flex h-[72px] items-center justify-between px-4 sm:px-6 lg:px-7"
+        >
+
+            <!-- BRAND -->
+            <button
+                type="button"
+                onclick="switchPage('home')"
+                class="group flex items-center gap-3 text-left"
+                aria-label="Go to Lilyspring International School home"
+            >
+
+                <!-- Logo -->
+                <div class="relative shrink-0">
+
+                    <div
+                        class="flex h-11 w-11 items-center justify-center rounded-[14px] bg-gradient-to-br from-brand-navy via-indigo-900 to-purple-800 shadow-lg shadow-indigo-950/20 transition duration-300 group-hover:scale-105"
+                    >
+                        <i
+                            class="fa-solid fa-graduation-cap text-lg text-white"
+                        ></i>
+                    </div>
+
+                    <span
+                        class="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full border-2 border-white bg-emerald-500"
+                    >
+                        <span class="h-1.5 w-1.5 rounded-full bg-white"></span>
+                    </span>
+
+                </div>
+
+                <!-- School Name -->
+                <div class="hidden sm:block">
+
+                    <div
+                        id="navSchoolName"
+                        class="font-serif-heading text-lg font-black leading-none tracking-tight text-brand-navy sm:text-xl"
+                    >
+                        Lilyspring
+                    </div>
+
+                    <div
+                        id="navSchoolSub"
+                        class="mt-1 text-[8px] font-bold uppercase tracking-[0.18em] text-purple-600 sm:text-[9px]"
+                    >
+                        International School
+                    </div>
+
+                </div>
+
+            </button>
+
+
+            <!-- =================================================
+                 DESKTOP NAVIGATION
+            ================================================== -->
+
+            <nav
+                id="desktopNavigation"
+                class="hidden lg:flex items-center gap-0.5"
+                aria-label="Main navigation"
+            >
+
+                <button
+                    type="button"
+                    onclick="switchPage('home')"
+                    class="nav-link active"
+                >
+                    Home
+                </button>
+
+                <button
+                    type="button"
+                    onclick="scrollToSection('about')"
+                    class="nav-link"
+                >
+                    About
+                </button>
+
+                <button
+                    type="button"
+                    onclick="scrollToSection('programs')"
+                    class="nav-link"
+                >
+                    Academics
+                </button>
+
+                <button
+                    type="button"
+                    onclick="scrollToSection('announcements')"
+                    class="nav-link"
+                >
+                    News
+                </button>
+
+                <button
+                    type="button"
+                    onclick="scrollToSection('facilities')"
+                    class="nav-link"
+                >
+                    Facilities
+                </button>
+
+                <button
+                    type="button"
+                    onclick="scrollToSection('gallery')"
+                    class="nav-link"
+                >
+                    Gallery
+                </button>
+
+                <button
+                    type="button"
+                    onclick="scrollToSection('staff')"
+                    class="nav-link"
+                >
+                    Our Team
+                </button>
+
+                <button
+                    type="button"
+                    onclick="scrollToSection('testimonials')"
+                    class="nav-link"
+                >
+                    Testimonials
+                </button>
+
+                <button
+                    type="button"
+                    onclick="scrollToSection('faq')"
+                    class="nav-link"
+                >
+                    FAQs
+                </button>
+
+            </nav>
+
+
+            <!-- =================================================
+                 DESKTOP ACTIONS
+            ================================================== -->
+
+            <div class="hidden lg:flex items-center gap-2">
+
+                <!-- Admin -->
+                <button
+                    type="button"
+                    onclick="toggleAdminAccess()"
+                    title="Admin Management Portal"
+                    aria-label="Open Admin Management Portal"
+                    class="group flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-600 transition-all duration-300 hover:border-purple-200 hover:bg-purple-50 hover:text-purple-700"
+                >
+                    <i
+                        class="fa-solid fa-user-gear text-sm transition-transform duration-300 group-hover:rotate-12"
+                    ></i>
+                </button>
+
+
+                <div class="mx-1 h-7 w-px bg-slate-200"></div>
+
+
+                <!-- Apply -->
+                <button
+                    type="button"
+                    onclick="switchPage('apply')"
+                    class="group relative inline-flex items-center gap-2 overflow-hidden rounded-xl bg-gradient-to-r from-brand-accent to-orange-500 px-5 py-3 text-xs font-extrabold text-white shadow-lg shadow-orange-500/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+                >
+
+                    <span class="relative z-10">
+                        Apply Now
+                    </span>
+
+                    <i
+                        class="fa-solid fa-arrow-right relative z-10 text-[10px] transition-transform duration-300 group-hover:translate-x-1"
+                    ></i>
+
+                    <span
+                        class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+                    ></span>
+
+                </button>
+
+            </div>
+
+
+            <!-- =================================================
+                 MOBILE MENU BUTTON
+            ================================================== -->
+
+            <button
+                id="siteMobileMenuButton"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                class="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white text-brand-navy shadow-sm transition-all duration-300 hover:border-purple-200 hover:bg-purple-50 lg:hidden"
+            >
+
+                <div class="relative h-5 w-5">
+
+                    <span
+                        class="site-menu-line absolute left-0 top-1 block h-0.5 w-5 rounded-full bg-current transition-all duration-300"
+                    ></span>
+
+                    <span
+                        class="site-menu-line absolute left-0 top-2.5 block h-0.5 w-5 rounded-full bg-current transition-all duration-300"
+                    ></span>
+
+                    <span
+                        class="site-menu-line absolute left-0 top-4 block h-0.5 w-5 rounded-full bg-current transition-all duration-300"
+                    ></span>
+
+                </div>
+
+            </button>
+
+        </div>
+
+
+        <!-- =====================================================
+             MOBILE MENU
+        ====================================================== -->
+
+        <div
+            id="siteMobileMenu"
+            class="hidden border-t border-slate-100"
+        >
+
+            <div class="px-4 pb-5 pt-4 sm:px-6">
+
+                <nav class="grid gap-1">
+
+                    <button
+                        type="button"
+                        onclick="switchPage('home'); closeSiteMobileMenu()"
+                        class="mobile-nav-link"
+                    >
+                        <span class="mobile-nav-icon">
+                            <i class="fa-solid fa-house"></i>
+                        </span>
+
+                        <span>Home</span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="scrollToSection('about'); closeSiteMobileMenu()"
+                        class="mobile-nav-link"
+                    >
+                        <span class="mobile-nav-icon">
+                            <i class="fa-solid fa-school"></i>
+                        </span>
+
+                        <span>About Us</span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="scrollToSection('programs'); closeSiteMobileMenu()"
+                        class="mobile-nav-link"
+                    >
+                        <span class="mobile-nav-icon">
+                            <i class="fa-solid fa-book-open"></i>
+                        </span>
+
+                        <span>Classes & Curriculum</span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="scrollToSection('announcements'); closeSiteMobileMenu()"
+                        class="mobile-nav-link"
+                    >
+                        <span class="mobile-nav-icon">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </span>
+
+                        <span>Announcements</span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="scrollToSection('facilities'); closeSiteMobileMenu()"
+                        class="mobile-nav-link"
+                    >
+                        <span class="mobile-nav-icon">
+                            <i class="fa-solid fa-building"></i>
+                        </span>
+
+                        <span>Facilities</span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="scrollToSection('gallery'); closeSiteMobileMenu()"
+                        class="mobile-nav-link"
+                    >
+                        <span class="mobile-nav-icon">
+                            <i class="fa-solid fa-images"></i>
+                        </span>
+
+                        <span>Gallery</span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="scrollToSection('staff'); closeSiteMobileMenu()"
+                        class="mobile-nav-link"
+                    >
+                        <span class="mobile-nav-icon">
+                            <i class="fa-solid fa-users"></i>
+                        </span>
+
+                        <span>Our Team</span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="scrollToSection('testimonials'); closeSiteMobileMenu()"
+                        class="mobile-nav-link"
+                    >
+                        <span class="mobile-nav-icon">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </span>
+
+                        <span>Testimonials</span>
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="scrollToSection('faq'); closeSiteMobileMenu()"
+                        class="mobile-nav-link"
+                    >
+                        <span class="mobile-nav-icon">
+                            <i class="fa-solid fa-circle-question"></i>
+                        </span>
+
+                        <span>FAQs</span>
+                    </button>
+
+                </nav>
+
+
+                <!-- Mobile Actions -->
+                <div
+                    class="mt-4 grid grid-cols-2 gap-2 border-t border-slate-100 pt-4"
+                >
+
+                    <button
+                        type="button"
+                        onclick="toggleAdminAccess(); closeSiteMobileMenu()"
+                        class="flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-bold text-slate-700 transition hover:bg-slate-100"
+                    >
+                        <i class="fa-solid fa-user-shield text-purple-600"></i>
+                        Admin
+                    </button>
+
+
+                    <button
+                        type="button"
+                        onclick="switchPage('apply'); closeSiteMobileMenu()"
+                        class="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-accent to-orange-500 px-4 py-3 text-xs font-bold text-white shadow-lg shadow-orange-500/20 transition hover:-translate-y-0.5"
+                    >
+                        <i class="fa-solid fa-paper-plane"></i>
+                        Apply Now
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     HEADER STYLES
+========================================================= -->
+
+<style>
+
+    /* =========================================================
+       NAVIGATION LINKS
+    ========================================================= */
+
+    .nav-link {
+        position: relative;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 9px 11px;
+
+        border: 0;
+        border-radius: 10px;
+
+        background: transparent;
+
+        color: #475569;
+
+        font-family: inherit;
+        font-size: 12px;
+        font-weight: 700;
+
+        cursor: pointer;
+
+        transition:
+            color .25s ease,
+            background-color .25s ease,
+            transform .25s ease;
+    }
+
+
+    .nav-link:hover {
+        color: #6d28d9;
+        background: rgba(124, 58, 237, .06);
+    }
+
+
+    .nav-link.active {
+        color: #6d28d9;
+        background: rgba(124, 58, 237, .07);
+    }
+
+
+    .nav-link.active::after {
+        content: "";
+
+        position: absolute;
+
+        left: 50%;
+        bottom: 3px;
+
+        width: 4px;
+        height: 4px;
+
+        border-radius: 999px;
+
+        background: #7c3aed;
+
+        transform: translateX(-50%);
+    }
+
+
+    /* =========================================================
+       MOBILE NAVIGATION
+    ========================================================= */
+
+    .mobile-nav-link {
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+
+        gap: 12px;
+
+        padding: 12px;
+
+        border: 0;
+        border-radius: 12px;
+
+        background: transparent;
+
+        color: #475569;
+
+        font-family: inherit;
+        font-size: 14px;
+        font-weight: 700;
+
+        text-align: left;
+
+        cursor: pointer;
+
+        transition:
+            background-color .25s ease,
+            color .25s ease,
+            transform .25s ease;
+    }
+
+
+    .mobile-nav-link:hover {
+        color: #6d28d9;
+        background: #faf5ff;
+        transform: translateX(3px);
+    }
+
+
+    .mobile-nav-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 34px;
+        height: 34px;
+
+        flex-shrink: 0;
+
+        border-radius: 10px;
+
+        background: #f8fafc;
+
+        color: #64748b;
+
+        font-size: 12px;
+
+        transition:
+            background-color .25s ease,
+            color .25s ease;
+    }
+
+
+    .mobile-nav-link:hover .mobile-nav-icon {
+        background: #ede9fe;
+        color: #7c3aed;
+    }
+
+
+    /* =========================================================
+       SCROLLED HEADER
+    ========================================================= */
+
+    #mainHeader.nav-scrolled {
+        padding-top: 8px;
+    }
+
+
+    #mainHeader.nav-scrolled #navContainer {
+        border-color: rgba(226, 232, 240, .95);
+
+        box-shadow:
+            0 15px 45px rgba(30, 27, 75, .12);
+    }
+
+
+    #mainHeader.nav-scrolled #navBar {
+        height: 64px;
+    }
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    #siteMobileMenu {
+        max-height: 0;
+
+        opacity: 0;
+
+        overflow: hidden;
+
+        transform: translateY(-8px);
+
+        transition:
+            max-height .4s ease,
+            opacity .3s ease,
+            transform .3s ease;
+    }
+
+
+    #siteMobileMenu.site-mobile-open {
+        display: block;
+
+        max-height: 800px;
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+
+    /* =========================================================
+       MOBILE HAMBURGER
+    ========================================================= */
+
+    #siteMobileMenuButton.site-menu-open
+    .site-menu-line:nth-child(1) {
+        top: 9px;
+
+        transform: rotate(45deg);
+    }
+
+
+    #siteMobileMenuButton.site-menu-open
+    .site-menu-line:nth-child(2) {
+        opacity: 0;
+
+        transform: scaleX(0);
+    }
+
+
+    #siteMobileMenuButton.site-menu-open
+    .site-menu-line:nth-child(3) {
+        top: 9px;
+
+        transform: rotate(-45deg);
+    }
+
+
+    /* =========================================================
+       MOBILE / TABLET
+    ========================================================= */
+
+    @media (max-width: 1023px) {
+
+        #desktopNavigation {
+            display: none;
+        }
+
+    }
+
+
+    /* =========================================================
+       ACCESSIBILITY
+    ========================================================= */
+
+    @media (prefers-reduced-motion: reduce) {
+
+        #mainHeader,
+        #navContainer,
+        #navBar,
+        .nav-link,
+        .mobile-nav-link,
+        #siteMobileMenu,
+        #siteMobileMenuButton,
+        .site-menu-line {
+            transition: none !important;
+        }
+
+    }
+
+</style>
+
+
+<!-- =========================================================
+     HEADER JAVASCRIPT
+     Only controls the header itself.
+     It does NOT control homepage sections.
+========================================================= -->
+
+<script>
+
+(function () {
+
+    const header =
+        document.getElementById("mainHeader");
+
+    const mobileButton =
+        document.getElementById("siteMobileMenuButton");
+
+    const mobileMenu =
+        document.getElementById("siteMobileMenu");
+
+
+    /* =========================================================
+       SAFETY CHECK
+    ========================================================= */
+
+    if (!header || !mobileButton || !mobileMenu) {
+        return;
+    }
+
+
+    /* =========================================================
+       MOBILE MENU
+    ========================================================= */
+
+    window.openSiteMobileMenu = function () {
+
+        mobileMenu.classList.add("site-mobile-open");
+
+        mobileButton.classList.add("site-menu-open");
+
+        mobileButton.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+        mobileButton.setAttribute(
+            "aria-label",
+            "Close navigation menu"
+        );
+
+    };
+
+
+    window.closeSiteMobileMenu = function () {
+
+        mobileMenu.classList.remove("site-mobile-open");
+
+        mobileButton.classList.remove("site-menu-open");
+
+        mobileButton.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+        mobileButton.setAttribute(
+            "aria-label",
+            "Open navigation menu"
+        );
+
+    };
+
+
+    function toggleSiteMobileMenu() {
+
+        if (
+            mobileMenu.classList.contains(
+                "site-mobile-open"
+            )
+        ) {
+
+            closeSiteMobileMenu();
+
+        } else {
+
+            openSiteMobileMenu();
+
+        }
+
+    }
+
+
+    mobileButton.addEventListener(
+        "click",
+        toggleSiteMobileMenu
+    );
+
+
+    /* =========================================================
+       CLOSE WHEN CLICKING OUTSIDE
+    ========================================================= */
+
+    document.addEventListener(
+        "click",
+        function (event) {
+
+            if (
+                !header.contains(event.target) &&
+                mobileMenu.classList.contains(
+                    "site-mobile-open"
+                )
+            ) {
+
+                closeSiteMobileMenu();
+
+            }
+
+        }
+    );
+
+
+    /* =========================================================
+       CLOSE WITH ESC
+    ========================================================= */
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Escape") {
+
+                closeSiteMobileMenu();
+
+            }
+
+        }
+    );
+
+
+    /* =========================================================
+       HEADER SCROLL EFFECT
+       Uses a unique class so it cannot conflict with
+       homepage scroll classes.
+    ========================================================= */
+
+    function updateSiteHeader() {
+
+        const scrollTop =
+            window.scrollY ||
+            document.documentElement.scrollTop;
+
+
+        if (scrollTop > 30) {
+
+            header.classList.add("nav-scrolled");
+
+        } else {
+
+            header.classList.remove("nav-scrolled");
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateSiteHeader,
+        { passive: true }
+    );
+
+
+    updateSiteHeader();
+
+
+})();
+
+</script>
+
+<!-- =========================================================
+     MODERN HOMEPAGE HERO
+========================================================= -->
+<main class="flex-grow z-10">
+
+    <!-- ================= PAGE 1: HOME PAGE ================= -->
+    <div id="page-home" class="page-view">
+
+        <!-- =====================================================
+             HERO SECTION
+        ====================================================== -->
+        <section
+            id="about"
+            class="relative min-h-[calc(100vh-80px)] overflow-hidden bg-slate-50 pt-8 pb-16 sm:pt-12 lg:pt-16 lg:pb-20"
+        >
+
+            <!-- =================================================
+                 BACKGROUND DECORATION
+            ================================================== -->
+            <div class="pointer-events-none absolute inset-0 overflow-hidden">
+
+                <!-- Purple glow -->
+                <div
+                    class="absolute -right-40 -top-40 h-[550px] w-[550px] rounded-full bg-purple-300/25 blur-3xl"
+                ></div>
+
+                <!-- Orange glow -->
+                <div
+                    class="absolute -bottom-52 -left-40 h-[500px] w-[500px] rounded-full bg-orange-200/20 blur-3xl"
+                ></div>
+
+                <!-- Grid -->
+                <div
+                    class="absolute inset-0 opacity-[0.025]"
+                    style="background-image: linear-gradient(#312e81 1px, transparent 1px), linear-gradient(90deg, #312e81 1px, transparent 1px); background-size: 50px 50px;"
+                ></div>
+
+            </div>
+
+
+            <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+                <div class="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:gap-14">
+
+
+                    <!-- =================================================
+                         LEFT CONTENT
+                    ================================================== -->
+                    <div class="hero-content text-center lg:text-left">
+
+
+                        <!-- Admission Badge -->
+                        <div
+                            class="mb-6 inline-flex items-center gap-2 rounded-full border border-purple-200 bg-white/80 px-4 py-2 shadow-sm backdrop-blur-md"
+                        >
+
+                            <span class="relative flex h-2.5 w-2.5">
+                                <span
+                                    class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-50"
+                                ></span>
+
+                                <span
+                                    class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500"
+                                ></span>
+                            </span>
+
+                            <span class="text-xs font-bold text-slate-700 sm:text-sm">
+                                Admissions Open
+                            </span>
+
+                            <span class="h-4 w-px bg-slate-200"></span>
+
+                            <span class="text-xs font-semibold text-purple-600">
+                                <span class="dynamic-academic-session">2026/2027</span>
+                            </span>
+
+                        </div>
+
+
+                        <!-- Main Heading -->
+                        <h1
+                            class="font-serif-heading text-4xl font-black leading-[1.08] tracking-tight text-brand-navy sm:text-5xl lg:text-6xl xl:text-[4.25rem]"
+                        >
+                            Building bright
+                            <span
+                                class="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-indigo-600 to-brand-accent"
+                            >
+                                futures
+                            </span>
+                            through education.
+                        </h1>
+
+
+                        <!-- Description -->
+                        <p
+                            id="displayHeroTagline"
+                            class="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-600 sm:text-lg lg:mx-0"
+                        >
+                            At Lilyspring International School, we provide holistic
+                            primary and secondary education grounded in moral values,
+                            academic excellence, modern science, ICT and practical
+                            leadership development.
+                        </p>
+
+
+                        <!-- CTA Buttons -->
+                        <div
+                            class="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row lg:justify-start"
+                        >
+
+                            <!-- Primary CTA -->
+                            <button
+                                type="button"
+                                onclick="switchPage('apply')"
+                                class="group relative inline-flex w-full items-center justify-center gap-3 overflow-hidden rounded-xl bg-brand-navy px-7 py-4 text-sm font-extrabold text-white shadow-xl shadow-indigo-950/20 transition-all duration-300 hover:-translate-y-1 hover:bg-indigo-900 hover:shadow-indigo-950/30 sm:w-auto"
+                            >
+
+                                <span class="relative z-10">
+                                    Begin Application
+                                </span>
+
+                                <span
+                                    class="relative z-10 flex h-7 w-7 items-center justify-center rounded-lg bg-brand-accent text-white transition-transform duration-300 group-hover:translate-x-1"
+                                >
+                                    <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                                </span>
+
+                                <span
+                                    class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full"
+                                ></span>
+
+                            </button>
+
+
+                            <!-- Secondary CTA -->
+                            <button
+                                type="button"
+                                onclick="scrollToSection('announcements')"
+                                class="group inline-flex w-full items-center justify-center gap-3 rounded-xl border border-slate-200 bg-white px-6 py-4 text-sm font-bold text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-purple-200 hover:bg-purple-50 hover:text-purple-700 sm:w-auto"
+                            >
+
+                                <span
+                                    class="flex h-8 w-8 items-center justify-center rounded-lg bg-orange-50 text-brand-accent transition-transform duration-300 group-hover:scale-110"
+                                >
+                                    <i class="fa-solid fa-bullhorn text-xs"></i>
+                                </span>
+
+                                <span>
+                                    School Notices
+                                </span>
+
+                            </button>
+
+                        </div>
+
+
+                        <!-- Trust statement -->
+                        <div
+                            class="mt-7 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[11px] font-semibold text-slate-400 lg:justify-start"
+                        >
+
+                            <span class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                                Quality Education
+                            </span>
+
+                            <span class="hidden h-3 w-px bg-slate-300 sm:block"></span>
+
+                            <span class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                                Primary & Secondary
+                            </span>
+
+                            <span class="hidden h-3 w-px bg-slate-300 sm:block"></span>
+
+                            <span class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-emerald-500"></i>
+                                Student Development
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+      <!-- =========================================================
+     HERO IMAGE FLOATING INFORMATION CARDS
+========================================================= -->
+<div class="relative mx-auto w-full max-w-[620px]">
+
+    <!-- =====================================================
+         MAIN IMAGE AREA
+    ====================================================== -->
+    <div class="relative">
+
+        <!-- Main image -->
+        <div class="relative overflow-visible rounded-[2rem] border border-white/70 bg-white/60 p-2 shadow-[0_25px_80px_rgba(30,27,75,0.14)] backdrop-blur-sm">
+            <div class="relative aspect-[4/3] overflow-hidden rounded-[1.65rem] bg-gradient-to-br from-purple-100 via-white to-orange-50">
+                <img 
+                    src="IMG_0685.jpeg" 
+                    alt="Lilyspring International School" 
+                    class="h-full w-full object-cover" 
+                    onerror="this.src='https://placehold.co/1000x750/f5f3ff/6d28d9?text=Lilyspring+International+School'"
+                >
+
+                <!-- Image gradient overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/70 via-transparent to-transparent"></div>
+
+                <!-- Image label -->
+                <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-3">
+                    <div class="rounded-xl border border-white/20 bg-black/20 px-3 py-2 backdrop-blur-md">
+                        <p class="text-[9px] font-bold uppercase tracking-[0.18em] text-white/70">
+                            Lilyspring International School
+                        </p>
+                        <p class="mt-0.5 text-sm font-black text-white">
+                            Where every child can thrive.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- =================================================
+             TRUSTED LEARNING BADGE (Top Right)
+        ================================================== -->
+        <div class="absolute -right-1 -top-4 z-30 flex items-center gap-2 rounded-full border border-white/80 bg-white/95 px-3 py-2 shadow-xl backdrop-blur-xl sm:-right-4">
+            <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                <i class="fa-solid fa-check text-xs"></i>
+            </span>
+            <div class="pr-1">
+                <p class="text-[10px] font-black leading-tight text-slate-800">
+                    Trusted Learning
+                </p>
+                <p class="mt-0.5 text-[9px] leading-tight text-slate-400">
+                    Primary & Secondary
+                </p>
+            </div>
+        </div>
+
+        <!-- =================================================
+             STUDENT CARD (Bottom Left)
+        ================================================== -->
+
+        <!-- =================================================
+             STUDENT EXCELLENCE CARD (Bottom Right)
+        ================================================== -->
+
+
+    <!-- =====================================================
+         QUICK STATS GRID
+    ====================================================== -->
+    <div class="mt-16 overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-[0_12px_35px_rgba(30,27,75,0.06)]">
+        <div class="grid grid-cols-2 lg:grid-cols-4">
+
+            <!-- Stat 1: Levels -->
+            <div class="flex min-h-[92px] items-center gap-3 border-b border-r border-slate-100 p-4 sm:p-5 lg:border-b-0">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-purple-50 text-purple-600">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="min-w-0">
+                    <p class="text-lg font-black leading-none text-brand-navy">2</p>
+                    <p class="mt-1 text-[10px] font-semibold leading-4 text-slate-400">School Levels</p>
+                </div>
+            </div>
+
+            <!-- Stat 2: Focus -->
+            <div class="flex min-h-[92px] items-center gap-3 border-b border-slate-100 p-4 sm:p-5 lg:border-b-0 lg:border-r">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange-50 text-orange-500">
+                    <i class="fa-solid fa-book-open"></i>
+                </div>
+                <div class="min-w-0">
+                    <p class="text-lg font-black leading-none text-brand-navy">100%</p>
+                    <p class="mt-1 text-[10px] font-semibold leading-4 text-slate-400">Learning Focus</p>
+                </div>
+            </div>
+
+            <!-- Stat 3: Environment -->
+            <div class="flex min-h-[92px] items-center gap-3 border-r border-slate-100 p-4 sm:p-5">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                    <i class="fa-solid fa-shield-heart"></i>
+                </div>
+                <div class="min-w-0">
+                    <p class="text-lg font-black leading-none text-brand-navy">Safe</p>
+                    <p class="mt-1 text-[10px] font-semibold leading-4 text-slate-400">School Environment</p>
+                </div>
+            </div>
+
+            <!-- Stat 4: Learners -->
+            <div class="flex min-h-[92px] items-center gap-3 p-4 sm:p-5">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                    <i class="fa-solid fa-people-group"></i>
+                </div>
+                <div class="min-w-0">
+                    <p class="text-lg font-black leading-none text-brand-navy">1,200+</p>
+                    <p class="mt-1 text-[10px] font-semibold leading-4 text-slate-400">Learners</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+        <!-- =====================================================
+             HERO ANIMATIONS
+        ====================================================== -->
+        <style>
+
+            .hero-content {
+                animation: heroContentIn .9s cubic-bezier(.22,1,.36,1) both;
+            }
+
+            .hero-image-frame {
+                animation: heroImageIn 1s cubic-bezier(.22,1,.36,1) .15s both;
+            }
+
+            @keyframes heroContentIn {
+
+                from {
+                    opacity: 0;
+                    transform: translateY(30px);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+            }
+
+            @keyframes heroImageIn {
+
+                from {
+                    opacity: 0;
+                    transform: translateY(30px) scale(.97);
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0) scale(1);
+                }
+
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+
+                .hero-content,
+                .hero-image-frame {
+                    animation: none;
+                }
+
+            }
+
+        </style>
+
+    </div>
+</main>
+
+
+            <!-- Mission & Vision Section -->
+            <section class="py-12 bg-white border-y border-purple-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-purple-50/50 p-8 rounded-3xl border border-purple-100 relative overflow-hidden">
+                            <div class="w-12 h-12 bg-brand-navy text-white rounded-2xl flex items-center justify-center mb-4 text-xl">
+                                <i class="fa-solid fa-bullseye"></i>
+                            </div>
+                            <h3 class="font-serif-heading text-2xl font-bold text-brand-navy mb-3">Our Mission</h3>
+                            <p id="displayMission" class="text-slate-600 text-sm leading-relaxed">
+                                To provide an enriching learning environment that equips students with academic excellence, digital literacy, strong moral character, and critical life skills for future societal leadership.
+                            </p>
+                        </div>
+
+                        <div class="bg-orange-50/40 p-8 rounded-3xl border border-orange-100 relative overflow-hidden">
+                            <div class="w-12 h-12 bg-brand-accent text-white rounded-2xl flex items-center justify-center mb-4 text-xl">
+                                <i class="fa-solid fa-eye"></i>
+                            </div>
+                            <h3 class="font-serif-heading text-2xl font-bold text-brand-navy mb-3">Our Vision</h3>
+                            <p id="displayVision" class="text-slate-600 text-sm leading-relaxed">
+                                To be a premier basic education institution recognized across Nigeria for cultivating resourceful, innovative, and ethically grounded scholars prepared for global opportunities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Programs / Classes Section (Nigerian Educational Structure) -->
+            <section id="programs" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-xs font-bold tracking-widest text-brand-accent uppercase">Academic Structure</span>
+                    <h2 class="font-serif-heading text-3xl sm:text-4xl font-extrabold text-brand-navy mt-1">Our Educational Cadres</h2>
+                    <p class="text-slate-600 text-sm mt-2">Following the 9-3-4 Nigerian National Curriculum integrated with ICT and STEM learning modules.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    
+                    <!-- Primary School Card -->
+                    <div class="bg-white rounded-3xl p-6 shadow-md border border-purple-100 hover:shadow-xl transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-orange-100 text-brand-accent flex items-center justify-center text-2xl mb-5">
+                            <i class="fa-solid fa-child"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-brand-navy mb-2">Primary School (P1 – P6)</h3>
+                        <p class="text-slate-600 text-xs mb-4 leading-relaxed">
+                            Foundational literacy, numeracy, basic science, civic education, computing, and social studies designed to spark curiosity and problem-solving.
+                        </p>
+                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-700 font-semibold mb-4">
+                            Classes: Primary 1, 2, 3, 4, 5 & 6
+                        </div>
+                        <button onclick="switchPage('apply')" class="w-full bg-purple-50 hover:bg-brand-navy hover:text-white text-brand-navy font-bold py-2.5 rounded-xl text-xs transition-colors">
+                            Apply for Primary
+                        </button>
+                    </div>
+
+                    <!-- Junior Secondary School Card -->
+                    <div class="bg-white rounded-3xl p-6 shadow-md border border-purple-100 hover:shadow-xl transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-purple-100 text-brand-violet flex items-center justify-center text-2xl mb-5">
+                            <i class="fa-solid fa-book-open"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-brand-navy mb-2">Junior Secondary (JSS 1 – 3)</h3>
+                        <p class="text-slate-600 text-xs mb-4 leading-relaxed">
+                            Comprehensive basic education preparing students for Basic Education Certificate Examination (BECE) with hands-on computer studies and pre-vocational skills.
+                        </p>
+                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-700 font-semibold mb-4">
+                            Classes: JSS 1, JSS 2 & JSS 3 (BECE Prep)
+                        </div>
+                        <button onclick="switchPage('apply')" class="w-full bg-purple-50 hover:bg-brand-navy hover:text-white text-brand-navy font-bold py-2.5 rounded-xl text-xs transition-colors">
+                            Apply for JSS
+                        </button>
+                    </div>
+
+                    <!-- Senior Secondary School Card -->
+                    <div class="bg-white rounded-3xl p-6 shadow-md border border-purple-100 hover:shadow-xl transition-all">
+                        <div class="w-14 h-14 rounded-2xl bg-indigo-100 text-brand-navy flex items-center justify-center text-2xl mb-5">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <h3 class="font-bold text-xl text-brand-navy mb-2">Senior Secondary (SS 1 – 3)</h3>
+                        <p class="text-slate-600 text-xs mb-4 leading-relaxed">
+                            Specialized academic tracks in Science, Arts, and Commercial disciplines tailored for WAEC, NECO, and JAMB UTME university matriculation exams.
+                        </p>
+                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-700 font-semibold mb-4">
+                            Departments: Science | Arts | Commercial
+                        </div>
+                        <button onclick="switchPage('apply')" class="w-full bg-purple-50 hover:bg-brand-navy hover:text-white text-brand-navy font-bold py-2.5 rounded-xl text-xs transition-colors">
+                            Apply for SS Class
+                        </button>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Dynamic Announcements Noticeboard -->
+            <section id="announcements" class="py-16 bg-gradient-to-b from-purple-50/60 to-white border-t border-purple-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="flex flex-col md:flex-row md:items-end justify-between mb-8">
+                        <div>
+                            <span class="text-xs font-bold tracking-widest text-brand-accent uppercase">Noticeboard</span>
+                            <h2 class="font-serif-heading text-3xl font-bold text-brand-navy mt-1">School Announcements</h2>
+                        </div>
+                        <span class="text-xs text-slate-500 mt-2 md:mt-0"><i class="fa-solid fa-bell text-brand-accent"></i> Official parent & student circulars</span>
+                    </div>
+
+                    <div id="announcementsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <!-- Dynamic Announcements generated by JS -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- School Facilities Showcase -->
+            <section id="facilities" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="text-xs font-bold tracking-widest text-brand-accent uppercase">Campus Environment</span>
+                    <h2 class="font-serif-heading text-3xl sm:text-4xl font-extrabold text-brand-navy mt-1">Modern School Facilities</h2>
+                    <p class="text-slate-600 text-sm mt-2">Equipped to deliver a secure, conducive, and stimulating learning experience.</p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-5 rounded-2xl border border-purple-100 shadow-sm flex flex-col items-center text-center">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-100 text-brand-accent flex items-center justify-center text-xl mb-3">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-800 text-sm">ICT & Computer Lab</h4>
+                        <p class="text-xs text-slate-500 mt-1">Air-conditioned digital laboratory with high-speed internet and desktop units.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl border border-purple-100 shadow-sm flex flex-col items-center text-center">
+                        <div class="w-12 h-12 rounded-2xl bg-purple-100 text-brand-violet flex items-center justify-center text-xl mb-3">
+                            <i class="fa-solid fa-vial-circle-check"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-800 text-sm">Science Laboratories</h4>
+                        <p class="text-xs text-slate-500 mt-1">Fully stocked Physics, Chemistry, and Biology practical laboratories.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl border border-purple-100 shadow-sm flex flex-col items-center text-center">
+                        <div class="w-12 h-12 rounded-2xl bg-indigo-100 text-brand-navy flex items-center justify-center text-xl mb-3">
+                            <i class="fa-solid fa-book"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-800 text-sm">Library & Resource Hub</h4>
+                        <p class="text-xs text-slate-500 mt-1">Thousands of curriculum textbooks, journals, and reference materials.</p>
+                    </div>
+
+                    <div class="bg-white p-5 rounded-2xl border border-purple-100 shadow-sm flex flex-col items-center text-center">
+                        <div class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-xl mb-3">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h4 class="font-bold text-slate-800 text-sm">Safe & Secure Campus</h4>
+                        <p class="text-xs text-slate-500 mt-1">24/7 CCTV surveillance, perimeter fence, and trained security personnel.</p>
+                    </div>
+                </div>
+            </section>
+
+<!-- =========================================================
+     MODERN SCHOOL GALLERY + SCHOOL BACKGROUND
+========================================================= -->
+<section id="gallery" class="modern-section relative overflow-hidden py-20 sm:py-24 lg:py-28">
+
+    <!-- Decorative glow -->
+    <div class="pointer-events-none absolute -top-40 -right-40 h-[32rem] w-[32rem] rounded-full bg-violet-300/20 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-40 -left-40 h-[30rem] w-[30rem] rounded-full bg-orange-200/20 blur-3xl"></div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <!-- Section heading -->
+        <div class="reveal-up mb-10 flex flex-col gap-5 lg:mb-14 lg:flex-row lg:items-end lg:justify-between">
+            <div class="max-w-3xl">
+                <span class="section-kicker">Life at Lilyspring</span>
+                <h2 class="font-serif-heading mt-5 text-4xl font-extrabold leading-[1.05] text-brand-navy sm:text-5xl lg:text-6xl">
+                    See the school.
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-violet to-brand-accent">
+                        Feel the experience.
+                    </span>
+                </h2>
+                <p class="mt-5 max-w-2xl text-sm leading-7 text-slate-500 sm:text-base">
+                    Explore the people, learning spaces and everyday moments that make Lilyspring a welcoming place to learn, grow and belong.
+                </p>
+            </div>
+
+            <div class="hidden rounded-2xl border border-purple-100 bg-white/70 px-5 py-4 shadow-sm backdrop-blur-md lg:block">
+                <p class="text-[10px] font-bold uppercase tracking-[.18em] text-slate-400">Gallery</p>
+                <p class="mt-1 text-sm font-bold text-brand-navy">Campus • Students • Learning</p>
+            </div>
+        </div>
+
+        <!-- School background image placeholder -->
+        <div class="reveal-up group relative mb-8 overflow-hidden rounded-[2rem] border border-white/70 bg-brand-navy shadow-[0_30px_90px_rgba(30,27,75,.20)] sm:rounded-[2.5rem]">
+            <!--
+                SCHOOL BACKGROUND IMAGE PLACEHOLDER
+                Replace "SCHOOL-BACKGROUND.jpg" with your actual school/campus image.
+                Example: src="images/school-background.jpg"
+            -->
+            <img
+                src="/IMG_0766.jpeg"
+                alt="Lilyspring International School campus"
+                class="absolute inset-0 h-full w-full object-cover transition duration-1000 ease-out group-hover:scale-[1.03]"
+                onerror="this.style.display='none';"
+            >
+
+            <!-- Rich gradient overlay keeps text readable -->
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/80 to-brand-navy/25"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent"></div>
+
+
+            <img
+                src="/IMG_0766.jpeg"
+                alt=""
+                aria-hidden="true"
+                class="absolute inset-0 h-full w-full object-cover transition duration-1000 ease-out group-hover:scale-[1.03]"
+                onerror="this.style.display='none';"
+            >
+
+            <div class="relative flex min-h-[360px] items-end p-6 sm:min-h-[430px] sm:p-10 lg:min-h-[500px] lg:p-14">
+                <div class="max-w-2xl">
+                    <div class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[.18em] text-white backdrop-blur-md">
+                        <span class="h-1.5 w-1.5 rounded-full bg-brand-accent"></span>
+                        Our Campus
+                    </div>
+                    <h3 class="font-serif-heading text-3xl font-extrabold leading-tight text-white sm:text-4xl lg:text-5xl">
+                        A learning environment designed for possibility.
+                    </h3>
+                    <p class="mt-4 max-w-xl text-sm leading-6 text-white/75 sm:text-base">
+                        Add a wide photo of the school building or campus here. The gradient automatically creates a polished hero effect over the image.
+                    </p>
+                    <div class="mt-6 flex flex-wrap gap-3">
+                        <span class="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold text-white backdrop-blur-md">
+                            <i class="fa-solid fa-location-dot mr-2 text-brand-accent"></i>Our Campus
+                        </span>
+                        <span class="rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold text-white backdrop-blur-md">
+                            <i class="fa-solid fa-camera mr-2 text-brand-violet"></i>School Gallery
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery grid -->
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-12">
+
+            <!-- Featured -->
+            <button type="button" onclick="openGalleryLightbox('IMG_0685.jpeg','Student Life','Growing confident young learners')"
+                class="reveal-up group relative min-h-[390px] overflow-hidden rounded-[2rem] text-left shadow-xl outline-none ring-offset-4 focus:ring-2 focus:ring-brand-violet sm:min-h-[470px] lg:col-span-7">
+                <img src="IMG_0685.jpeg" alt="Lilyspring students" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    onerror="this.src='https://placehold.co/1200x800/1e1b4b/ffffff?text=Students'">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+                <div class="absolute left-5 right-5 bottom-5 sm:left-7 sm:right-7 sm:bottom-7">
+                    <span class="text-[10px] font-bold uppercase tracking-[.2em] text-white/65">Student Life</span>
+                    <h3 class="mt-2 text-2xl font-extrabold text-white sm:text-3xl">Growing confident young learners</h3>
+                    <span class="mt-4 inline-flex items-center gap-2 text-xs font-bold text-white/80 transition group-hover:text-white">
+                        View photo <i class="fa-solid fa-arrow-right"></i>
+                    </span>
+                </div>
+            </button>
+
+            <!-- Learning -->
+            <button type="button" onclick="openGalleryLightbox('IMG_0684.jpeg','Learning','Learning with purpose')"
+                class="reveal-up group relative min-h-[300px] overflow-hidden rounded-[2rem] text-left shadow-xl outline-none ring-offset-4 focus:ring-2 focus:ring-brand-violet sm:min-h-[330px] lg:col-span-5">
+                <img src="/IMG_0684.jpeg" alt="Lilyspring student learning" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    onerror="this.src='https://placehold.co/900x700/8b5cf6/ffffff?text=Learning'">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+                <div class="absolute bottom-5 left-5 right-5">
+                    <span class="text-[10px] font-bold uppercase tracking-[.2em] text-white/65">Learning</span>
+                    <h3 class="mt-2 text-xl font-extrabold text-white sm:text-2xl">Learning with purpose</h3>
+                </div>
+            </button>
+
+            <!-- Classroom -->
+            <button type="button" onclick="openGalleryLightbox('IMG_0768.jpeg','Academics','Meaningful classroom moments')"
+                class="reveal-up group relative min-h-[300px] overflow-hidden rounded-[2rem] text-left shadow-xl outline-none ring-offset-4 focus:ring-2 focus:ring-brand-violet sm:min-h-[330px] lg:col-span-5">
+                <img src="/IMG_0768.jpeg" alt="Classroom" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+                <div class="absolute bottom-5 left-5 right-5">
+                    <span class="text-[10px] font-bold uppercase tracking-[.2em] text-white/65">Academics</span>
+                    <h3 class="mt-2 text-xl font-extrabold text-white sm:text-2xl">Meaningful classroom moments</h3>
+                </div>
+            </button>
+
+            <!-- Activities -->
+            <button type="button" onclick="openGalleryLightbox('IMG_2660.jpeg','Activities','Sports and activities')"
+                class="reveal-up group relative min-h-[300px] overflow-hidden rounded-[2rem] text-left shadow-xl outline-none ring-offset-4 focus:ring-2 focus:ring-brand-violet sm:min-h-[330px] lg:col-span-7">
+                <img src="IMG_2660.jpeg" alt="School sports and activities" class="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent"></div>
+                <div class="absolute bottom-5 left-5 right-5 sm:bottom-7 sm:left-7">
+                    <span class="text-[10px] font-bold uppercase tracking-[.2em] text-white/65">Activities</span>
+                    <h3 class="mt-2 text-2xl font-extrabold text-white sm:text-3xl">Sports, creativity and community</h3>
+                </div>
+            </button>
+        </div>
+
+        <!-- Gallery note -->
+        <div class="reveal-up mt-7 flex flex-col gap-4 rounded-2xl border border-purple-100 bg-white/70 p-5 shadow-sm backdrop-blur-md sm:flex-row sm:items-center sm:justify-between">
+            <div class="flex items-start gap-3">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-purple-100 text-brand-violet">
+                    <i class="fa-solid fa-images"></i>
+                </div>
+                <div>
+                    <p class="text-sm font-bold text-brand-navy">Learning, growing, and celebrating together.</p>
+                    <p class="mt-1 text-xs leading-5 text-slate-500">These photos capture the everyday moments and big events that make our school year unforgettable.</p>
+                </div>
+            </div>
+            <span class="text-xs font-bold text-brand-violet">Real Moments • Everyday Learning • Stronger Together</span>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Lightbox -->
+<div id="galleryLightbox" class="fixed inset-0 z-[10000] hidden items-center justify-center bg-slate-950/90 p-4 backdrop-blur-md"
+     onclick="closeGalleryLightbox()">
+    <div class="relative w-full max-w-5xl overflow-hidden rounded-[2rem] bg-white shadow-2xl"
+         onclick="event.stopPropagation()">
+        <button type="button" onclick="closeGalleryLightbox()"
+            class="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-white/90 text-slate-700 shadow-lg transition hover:bg-white"
+            aria-label="Close gallery">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="galleryLightboxImage" src="" alt="" class="max-h-[70vh] w-full object-cover">
+        <div class="p-6 sm:p-8">
+            <p id="galleryLightboxCategory" class="text-[10px] font-bold uppercase tracking-[.18em] text-brand-accent"></p>
+            <h3 id="galleryLightboxTitle" class="mt-2 text-2xl font-extrabold text-brand-navy"></h3>
+        </div>
+    </div>
+</div>
+
+<!-- Modern gallery interactions -->
+<script>
+(function () {
+    const revealItems = document.querySelectorAll('#gallery .reveal-up');
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealItems.forEach((item, index) => {
+            item.style.transitionDelay = `${Math.min(index * 70, 420)}ms`;
+            observer.observe(item);
+        });
+    } else {
+        revealItems.forEach(item => item.classList.add('is-visible'));
+    }
+
+    window.openGalleryLightbox = function (image, category, title) {
+        const modal = document.getElementById('galleryLightbox');
+        const img = document.getElementById('galleryLightboxImage');
+        document.getElementById('galleryLightboxCategory').textContent = category;
+        document.getElementById('galleryLightboxTitle').textContent = title;
+        img.src = image;
+        img.alt = title;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeGalleryLightbox = function () {
+        const modal = document.getElementById('galleryLightbox');
+        modal.classList.remove('flex');
+        modal.classList.add('hidden');
+        document.body.style.overflow = '';
+    };
+
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') window.closeGalleryLightbox();
+    });
+})();
+</script>
+
+<!-- =========================================================
+```html
+<!-- =========================================================
+     MODERN LEADERSHIP SECTION
+========================================================= -->
+<section id="staff" class="relative overflow-hidden bg-white py-24 sm:py-28">
+
+    <!-- Background decoration -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="absolute -top-40 -right-40 h-[500px] w-[500px] rounded-full bg-purple-200/30 blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 h-[500px] w-[500px] rounded-full bg-indigo-200/20 blur-3xl"></div>
+
+        <div class="absolute inset-0 opacity-[0.025]"
+             style="background-image: radial-gradient(#312e81 1px, transparent 1px); background-size: 28px 28px;">
+        </div>
+    </div>
+
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        <!-- =====================================================
+             SECTION HEADER
+        ====================================================== -->
+        <div class="mx-auto mb-16 max-w-3xl text-center leadership-reveal">
+
+            <div class="mb-5 inline-flex items-center gap-2 rounded-full border border-purple-100 bg-purple-50 px-4 py-2 shadow-sm">
+                <span class="relative flex h-2 w-2">
+                    <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-500 opacity-50"></span>
+                    <span class="relative inline-flex h-2 w-2 rounded-full bg-purple-600"></span>
+                </span>
+
+                <span class="text-[11px] font-extrabold uppercase tracking-[0.2em] text-purple-700">
+                    Our Leadership
+                </span>
+            </div>
+
+            <h2 class="font-serif-heading text-4xl font-black leading-tight tracking-tight text-brand-navy sm:text-5xl lg:text-6xl">
+                The people behind
+                <span class="relative inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-indigo-600 to-blue-600">
+                    our vision
+                </span>
+            </h2>
+
+            <p class="mx-auto mt-6 max-w-2xl text-base leading-7 text-slate-500 sm:text-lg">
+                Meet the dedicated leaders and educators who guide Lilyspring
+                International School with purpose, experience and a commitment
+                to every child's growth.
+            </p>
+
+        </div>
+
+
+        <!-- =====================================================
+             DIRECTOR / HEAD OF SCHOOL FEATURE
+        ====================================================== -->
+        <div class="group relative mb-20 overflow-hidden rounded-[2rem] border border-slate-200 bg-slate-950 shadow-[0_30px_80px_-30px_rgba(15,23,42,0.45)]">
+
+            <!-- Background glow -->
+            <div class="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-purple-600/20 blur-3xl"></div>
+            <div class="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-indigo-600/20 blur-3xl"></div>
+
+            <div class="relative grid lg:grid-cols-[0.95fr_1.05fr]">
+
+                <!-- Director Image -->
+                <div class="relative min-h-[430px] overflow-hidden lg:min-h-[620px]">
+
+                    <img
+                        src="/director.jpeg"
+                        alt="Director and Head of School"
+                        class="absolute inset-0 h-full w-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.04]"
+                    >
+
+                    <!-- Image overlays -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:via-transparent lg:to-slate-950"></div>
+
+                    <div class="absolute left-6 top-6">
+                        <div class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur-xl">
+                            <span class="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.8)]"></span>
+                            <span class="text-[10px] font-bold uppercase tracking-[0.18em] text-white">
+                                School Leadership
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- Director Content -->
+                <div class="relative flex flex-col justify-center p-7 sm:p-10 lg:p-16 xl:p-20">
+
+                    <div class="mb-6 flex items-center gap-3">
+                        <div class="h-px w-10 bg-purple-400"></div>
+
+                        <span class="text-[11px] font-bold uppercase tracking-[0.2em] text-purple-300">
+                            Director's Message
+                        </span>
+                    </div>
+
+                    <h3 class="max-w-xl text-3xl font-black leading-tight text-white sm:text-4xl lg:text-5xl">
+                        Leading with
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-indigo-300">
+                            purpose.
+                        </span>
+                    </h3>
+
+                    <blockquote class="mt-7 max-w-2xl border-l-2 border-purple-400 pl-5 text-base font-medium leading-8 text-white/80 sm:text-lg">
+                        “At Lilyspring International School, we believe that every
+                        child has the potential to learn, grow and make a meaningful
+                        contribution to the world.”
+                    </blockquote>
+
+                    <p class="mt-6 max-w-2xl text-sm leading-7 text-white/55 sm:text-base">
+                        Our leadership team works together to create a safe,
+                        supportive and academically focused environment where
+                        students are encouraged to discover their abilities,
+                        develop confidence and prepare for the future.
+                    </p>
+
+
+                    <!-- Director Identity -->
+                    <div class="mt-9 flex items-center gap-4">
+
+                        <div class="relative">
+                            <img
+                                src="/director2.jpeg"
+                                alt="Director of Lilyspring International School"
+                                class="h-16 w-16 rounded-2xl border border-white/20 object-cover shadow-xl"
+                            >
+
+                            <span class="absolute -bottom-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full border-2 border-slate-950 bg-emerald-500">
+                                <svg class="h-2.5 w-2.5 text-white" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                          d="M16.707 5.293a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.25-3.25a1 1 0 111.414-1.414l2.543 2.543 6.543-6.543a1 1 0 011.414 0z"
+                                          clip-rule="evenodd"/>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div>
+                            <h4 class="font-bold text-white">
+                                Mrs Anyanwu Chinomso
+                            </h4>
+
+                            <p class="mt-1 text-sm text-purple-300">
+                                Director / Head of School
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- CTA -->
+                    <div class="mt-9">
+
+                        <button
+                            type="button"
+                            onclick="openProfile('director')"
+                            class="group/btn inline-flex items-center gap-3 rounded-xl bg-white px-5 py-3.5 text-sm font-extrabold text-slate-950 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-purple-50 hover:shadow-purple-500/20"
+                        >
+                            <span>View full profile</span>
+
+                            <span class="flex h-7 w-7 items-center justify-center rounded-lg bg-slate-100 transition-transform duration-300 group-hover/btn:translate-x-1">
+                                →
+                            </span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- =====================================================
+             LEADERSHIP GRID HEADER
+        ====================================================== -->
+        <div class="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
+
+            <div>
+                <p class="text-xs font-bold uppercase tracking-[0.2em] text-purple-600">
+                    School Administration
+                </p>
+
+                <h3 class="mt-2 text-2xl font-black text-brand-navy sm:text-3xl">
+                    Meet our leadership team
+                </h3>
+            </div>
+
+            <p class="max-w-md text-sm leading-6 text-slate-500 sm:text-right">
+                Experienced educators and administrators working together
+                to support our students and school community.
+            </p>
+
+        </div>
+
+
+        <!-- =====================================================
+             STAFF CARDS
+        ====================================================== -->
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+
+            <!-- Principal -->
+            <article class="staff-card group">
+
+                <div class="relative aspect-[4/4.5] overflow-hidden rounded-[1.5rem] bg-slate-100">
+
+                    <img
+                        src="/principal.jpg"
+                        alt="Principal"
+                        class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent"></div>
+
+                    <div class="absolute left-4 top-4">
+                        <span class="rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md">
+                            Principal
+                        </span>
+                    </div>
+
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <p class="text-lg font-extrabold text-white">
+                            Principal Name
+                        </p>
+
+                        <p class="mt-1 text-xs text-white/65">
+                            School Administration
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="pt-5">
+
+                    <p class="text-sm leading-6 text-slate-500">
+                        Providing academic leadership and helping maintain
+                        a strong learning environment for every student.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="openProfile('principal')"
+                        class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-purple-600 transition hover:gap-3 hover:text-purple-800"
+                    >
+                        View profile
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Vice Principal -->
+            <article class="staff-card group">
+
+                <div class="relative aspect-[4/4.5] overflow-hidden rounded-[1.5rem] bg-slate-100">
+
+                    <img
+                        src="/vice-principal.jpg"
+                        alt="Vice Principal"
+                        class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent"></div>
+
+                    <div class="absolute left-4 top-4">
+                        <span class="rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md">
+                            Vice Principal
+                        </span>
+                    </div>
+
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <p class="text-lg font-extrabold text-white">
+                            Vice Principal Name
+                        </p>
+
+                        <p class="mt-1 text-xs text-white/65">
+                            School Administration
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="pt-5">
+
+                    <p class="text-sm leading-6 text-slate-500">
+                        Supporting school operations and student development
+                        while working closely with staff and families.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="openProfile('vicePrincipal')"
+                        class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-indigo-600 transition hover:gap-3 hover:text-indigo-800"
+                    >
+                        View profile
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Head Teacher -->
+            <article class="staff-card group">
+
+                <div class="relative aspect-[4/4.5] overflow-hidden rounded-[1.5rem] bg-slate-100">
+
+                    <img
+                        src="/head-teacher.jpg"
+                        alt="Head Teacher"
+                        class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent"></div>
+
+                    <div class="absolute left-4 top-4">
+                        <span class="rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md">
+                            Head Teacher
+                        </span>
+                    </div>
+
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <p class="text-lg font-extrabold text-white">
+                            Head Teacher Name
+                        </p>
+
+                        <p class="mt-1 text-xs text-white/65">
+                            Primary School
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="pt-5">
+
+                    <p class="text-sm leading-6 text-slate-500">
+                        Supporting teaching excellence and helping students
+                        build strong academic foundations.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="openProfile('headTeacher')"
+                        class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-orange-500 transition hover:gap-3 hover:text-orange-600"
+                    >
+                        View profile
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </article>
+
+
+            <!-- Administrator -->
+            <article class="staff-card group">
+
+                <div class="relative aspect-[4/4.5] overflow-hidden rounded-[1.5rem] bg-slate-100">
+
+                    <img
+                        src="/administrator.jpg"
+                        alt="School Administrator"
+                        class="h-full w-full object-cover transition duration-700 ease-out group-hover:scale-105"
+                    >
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/10 to-transparent"></div>
+
+                    <div class="absolute left-4 top-4">
+                        <span class="rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md">
+                            Administrator
+                        </span>
+                    </div>
+
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <p class="text-lg font-extrabold text-white">
+                            Administrator Name
+                        </p>
+
+                        <p class="mt-1 text-xs text-white/65">
+                            School Operations
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="pt-5">
+
+                    <p class="text-sm leading-6 text-slate-500">
+                        Helping coordinate school administration and ensuring
+                        smooth day-to-day operations.
+                    </p>
+
+                    <button
+                        type="button"
+                        onclick="openProfile('admin')"
+                        class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-emerald-600 transition hover:gap-3 hover:text-emerald-700"
+                    >
+                        View profile
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================================================
+     PROFILE MODAL
+========================================================= -->
+<div
+    id="profileModal"
+    class="fixed inset-0 z-[9999] hidden items-center justify-center p-4"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="profileName"
+>
+
+    <!-- Backdrop -->
+    <div
+        onclick="closeProfile()"
+        class="absolute inset-0 bg-slate-950/80 backdrop-blur-lg"
+    ></div>
+
+
+    <!-- Modal -->
+    <div
+        id="profileModalContent"
+        class="relative w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-[2rem] border border-white/10 bg-white shadow-2xl opacity-0 scale-95 transition-all duration-300"
+    >
+
+        <!-- Close -->
+        <button
+            type="button"
+            onclick="closeProfile()"
+            aria-label="Close profile"
+            class="absolute right-5 top-5 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/90 text-slate-600 shadow-lg backdrop-blur transition hover:rotate-90 hover:bg-white"
+        >
+            <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 6l12 12M18 6L6 18"/>
+            </svg>
+        </button>
+
+
+        <div class="grid max-h-[90vh] overflow-y-auto md:grid-cols-[0.8fr_1.2fr]">
+
+            <!-- Image -->
+            <div class="relative min-h-[320px] bg-slate-100 md:min-h-[600px]">
+
+                <img
+                    id="profileImage"
+                    src=""
+                    alt=""
+                    class="absolute inset-0 h-full w-full object-cover"
+                >
+
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent"></div>
+
+                <div class="absolute bottom-6 left-6 right-6">
+                    <span
+                        id="profileRoleBadge"
+                        class="inline-flex rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md"
+                    ></span>
+                </div>
+
+            </div>
+
+
+            <!-- Content -->
+            <div class="p-7 sm:p-10 lg:p-12">
+
+                <p
+                    id="profileRole"
+                    class="text-xs font-extrabold uppercase tracking-[0.2em] text-purple-600"
+                ></p>
+
+                <h3
+                    id="profileName"
+                    class="mt-2 text-3xl font-black tracking-tight text-brand-navy sm:text-4xl"
+                ></h3>
+
+                <div class="mt-5 h-1 w-12 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600"></div>
+
+
+                <!-- Bio -->
+                <div class="mt-7">
+
+                    <p class="mb-2 text-[11px] font-extrabold uppercase tracking-[0.18em] text-slate-400">
+                        Biography
+                    </p>
+
+                    <p
+                        id="profileBio"
+                        class="text-sm leading-7 text-slate-600"
+                    ></p>
+
+                </div>
+
+
+                <!-- Details -->
+                <div class="mt-7 rounded-2xl border border-slate-100 bg-slate-50 p-5">
+
+                    <p class="text-[11px] font-extrabold uppercase tracking-[0.18em] text-slate-400">
+                        About the role
+                    </p>
+
+                    <p
+                        id="profileDetails"
+                        class="mt-3 text-sm leading-7 text-slate-600"
+                    ></p>
+
+                </div>
+
+
+                <!-- Future contact/social area -->
+                <div class="mt-8 flex flex-wrap gap-3">
+
+                    <span class="inline-flex items-center gap-2 rounded-xl bg-purple-50 px-4 py-2.5 text-xs font-bold text-purple-700">
+                        <span class="h-2 w-2 rounded-full bg-purple-500"></span>
+                        Lilyspring Leadership
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- =========================================================
+     LEADERSHIP STYLES
+========================================================= -->
+<style>
+
+    .leadership-reveal {
+        animation: leadershipReveal .9s cubic-bezier(.22,1,.36,1) both;
+    }
+
+    .staff-card {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: staffCardReveal .8s cubic-bezier(.22,1,.36,1) forwards;
+    }
+
+    .staff-card:nth-child(1) {
+        animation-delay: .10s;
+    }
+
+    .staff-card:nth-child(2) {
+        animation-delay: .20s;
+    }
+
+    .staff-card:nth-child(3) {
+        animation-delay: .30s;
+    }
+
+    .staff-card:nth-child(4) {
+        animation-delay: .40s;
+    }
+
+    @keyframes leadershipReveal {
+
+        from {
+            opacity: 0;
+            transform: translateY(25px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    }
+
+    @keyframes staffCardReveal {
+
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    }
+
+
+    /* Smooth scrollbar */
+    #profileModalContent::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    #profileModalContent::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    #profileModalContent::-webkit-scrollbar-thumb {
+        background: rgba(100, 116, 139, .35);
+        border-radius: 999px;
+    }
+
+
+    /* Reduced motion accessibility */
+    @media (prefers-reduced-motion: reduce) {
+
+        .leadership-reveal,
+        .staff-card {
+            animation: none;
+            opacity: 1;
+            transform: none;
+        }
+
+        .staff-card img {
+            transition: none;
+        }
+
+    }
+
+</style>
+
+
+<!-- =========================================================
+     PROFILE JAVASCRIPT
+========================================================= -->
+<script>
+
+    const profiles = {
+
+        director: {
+            name: "Director Name",
+            role: "Director / Head of School",
+            image: "/director2.jpeg",
+            bio: "Add the Director's complete biography, educational background, leadership experience and professional journey here.",
+            details: "Add the Director's educational philosophy, achievements, vision for Lilyspring International School and any other official information you want parents and visitors to know."
+        },
+
+        principal: {
+            name: "Principal Name",
+            role: "Principal",
+            image: "/principal.jpg",
+            bio: "Add the Principal's biography, educational background and leadership experience here.",
+            details: "Add qualifications, years of experience, responsibilities and educational philosophy."
+        },
+
+        vicePrincipal: {
+            name: "Vice Principal Name",
+            role: "Vice Principal",
+            image: "/vice-principal.jpg",
+            bio: "Add the Vice Principal's biography, educational background and experience here.",
+            details: "Add qualifications, responsibilities and relevant leadership experience."
+        },
+
+        headTeacher: {
+            name: "Head Teacher Name",
+            role: "Head Teacher",
+            image: "/head-teacher.jpg",
+            bio: "Add the Head Teacher's biography and teaching experience here.",
+            details: "Add qualifications, teaching philosophy and responsibilities."
+        },
+
+        admin: {
+            name: "Administrator Name",
+            role: "Administrator",
+            image: "/administrator.jpg",
+            bio: "Add the Administrator's biography, professional background and experience here.",
+            details: "Add qualifications, administrative responsibilities and relevant experience."
+        }
+
+    };
+
+
+    /* =========================================================
+       OPEN PROFILE
+    ========================================================= */
+
+    function openProfile(type) {
+
+        const profile = profiles[type];
+
+        if (!profile) {
+            console.warn(`Profile "${type}" was not found.`);
+            return;
+        }
+
+        const modal = document.getElementById("profileModal");
+        const content = document.getElementById("profileModalContent");
+
+        const image = document.getElementById("profileImage");
+        const name = document.getElementById("profileName");
+        const role = document.getElementById("profileRole");
+        const badge = document.getElementById("profileRoleBadge");
+        const bio = document.getElementById("profileBio");
+        const details = document.getElementById("profileDetails");
+
+
+        /* Populate profile */
+        name.textContent = profile.name;
+        role.textContent = profile.role;
+        badge.textContent = profile.role;
+        bio.textContent = profile.bio;
+        details.textContent = profile.details;
+
+        image.src = profile.image;
+        image.alt = profile.name;
+
+
+        /* Show modal */
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+
+        document.body.style.overflow = "hidden";
+
+
+        /* Animation */
+        requestAnimationFrame(() => {
+
+            content.classList.remove("scale-95", "opacity-0");
+
+            content.classList.add("scale-100", "opacity-100");
+
+        });
+
+    }
+
+
+    /* =========================================================
+       CLOSE PROFILE
+    ========================================================= */
+
+    function closeProfile() {
+
+        const modal = document.getElementById("profileModal");
+        const content = document.getElementById("profileModalContent");
+
+        if (modal.classList.contains("hidden")) {
+            return;
+        }
+
+        content.classList.remove("scale-100", "opacity-100");
+
+        content.classList.add("scale-95", "opacity-0");
+
+
+        setTimeout(() => {
+
+            modal.classList.remove("flex");
+            modal.classList.add("hidden");
+
+            document.body.style.overflow = "";
+
+        }, 300);
+
+    }
+
+
+    /* =========================================================
+       ESCAPE KEY
+    ========================================================= */
+
+    document.addEventListener("keydown", function(event) {
+
+        if (event.key === "Escape") {
+            closeProfile();
+        }
+
+    });
+
+
+    /* =========================================================
+       PREVENT MODAL CONTENT FROM CLOSING
+    ========================================================= */
+
+    document
+        .getElementById("profileModalContent")
+        .addEventListener("click", function(event) {
+
+            event.stopPropagation();
+
+        });
+
+</script>
+
+
+            <!-- Parent and Student Testimonials -->
+            <section id="testimonials" class="py-16 bg-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center max-w-2xl mx-auto mb-10">
+                        <span class="text-xs font-bold tracking-widest text-brand-accent uppercase">Community Voices</span>
+                        <h2 class="font-serif-heading text-3xl sm:text-4xl font-extrabold text-brand-navy mt-1">What Our Community Says</h2>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        <blockquote class="bg-purple-50/60 rounded-2xl border border-purple-100 p-6"><i class="fa-solid fa-quote-left text-brand-accent text-xl"></i><p class="text-sm text-slate-700 leading-relaxed mt-4">Parent testimonial placeholder. Add a genuine parent experience about the school's care and communication.</p><footer class="text-xs font-bold text-brand-navy mt-5">Parent Name <span class="font-normal text-slate-500">, Parent</span></footer></blockquote>
+                        <blockquote class="bg-orange-50/60 rounded-2xl border border-orange-100 p-6"><i class="fa-solid fa-quote-left text-brand-accent text-xl"></i><p class="text-sm text-slate-700 leading-relaxed mt-4">Student testimonial placeholder. Add a student's authentic experience of learning, friendships, and activities.</p><footer class="text-xs font-bold text-brand-navy mt-5">Student Name <span class="font-normal text-slate-500">, Student</span></footer></blockquote>
+                        <blockquote class="bg-emerald-50/60 rounded-2xl border border-emerald-100 p-6"><i class="fa-solid fa-quote-left text-brand-accent text-xl"></i><p class="text-sm text-slate-700 leading-relaxed mt-4">Alumni testimonial placeholder. Add an alumni story about how Lilyspring prepared them for the next stage.</p><footer class="text-xs font-bold text-brand-navy mt-5">Alumni Name <span class="font-normal text-slate-500">, Alumni</span></footer></blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Admission Requirements Section -->
+            <section id="admissions" class="py-16 bg-white border-t border-purple-100">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        <div class="lg:col-span-5 space-y-4">
+                            <span class="text-xs font-bold tracking-widest text-brand-accent uppercase">Requirements</span>
+                            <h2 class="font-serif-heading text-3xl font-bold text-brand-navy">Admission Criteria & Documents</h2>
+                            <p class="text-slate-600 text-sm leading-relaxed">
+                                Please review the required documentation before starting your application to ensure a smooth processing journey.
+                            </p>
+                            <button onclick="switchPage('apply')" class="bg-brand-accent hover:bg-brand-accentHover text-white font-bold px-6 py-3 rounded-full text-sm shadow-md transition-all inline-flex items-center gap-2">
+                                <span>Proceed to Application</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                            <div class="flex flex-wrap gap-3 pt-1">
+                                <button onclick="downloadProspectus()" class="inline-flex items-center gap-2 text-xs font-bold text-brand-navy border border-slate-200 bg-white hover:border-brand-accent hover:text-brand-accent px-4 py-2.5 rounded-full transition-colors">
+                                    <i class="fa-solid fa-download"></i> Download School Information
+                                </button>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Lilyspring%20International%20School%20Nigeria" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-xs font-bold text-slate-700 hover:text-brand-accent px-2 py-2.5 transition-colors">
+                                    <i class="fa-solid fa-location-dot"></i> Find Our Location
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-7">
+                            <div class="bg-purple-50/50 p-6 sm:p-8 rounded-3xl border border-purple-100 space-y-4">
+                                <ul id="admissionReqList" class="space-y-3 text-sm text-slate-700">
+                                    <!-- Dynamic admission requirements populated by JS -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Frequently Asked Questions -->
+            <section id="faq" class="py-16 bg-purple-50/50 border-t border-purple-100">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-10">
+                        <span class="text-xs font-bold tracking-widest text-brand-accent uppercase">Need to Know</span>
+                        <h2 class="font-serif-heading text-3xl sm:text-4xl font-extrabold text-brand-navy mt-1">Frequently Asked Questions</h2>
+                    </div>
+                    <div class="space-y-3">
+                        <details class="group bg-white rounded-2xl border border-purple-100 p-5 shadow-sm">
+                            <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold text-sm text-brand-navy">Which classes can I apply for?<i class="fa-solid fa-chevron-down text-brand-accent text-xs transition-transform group-open:rotate-180"></i></summary>
+                            <p class="text-sm text-slate-600 leading-relaxed mt-3">Applications are available for Primary 1 to 6, JSS 1 to 3, and SS 1 to 3 across the available academic tracks.</p>
+                        </details>
+                        <details class="group bg-white rounded-2xl border border-purple-100 p-5 shadow-sm">
+                            <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold text-sm text-brand-navy">What happens after I submit an application?<i class="fa-solid fa-chevron-down text-brand-accent text-xs transition-transform group-open:rotate-180"></i></summary>
+                            <p class="text-sm text-slate-600 leading-relaxed mt-3">You receive a reference number immediately. The admissions team reviews the application and contacts the parent or guardian with the next steps.</p>
+                        </details>
+                        <details class="group bg-white rounded-2xl border border-purple-100 p-5 shadow-sm">
+                            <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold text-sm text-brand-navy">Which documents should I prepare?<i class="fa-solid fa-chevron-down text-brand-accent text-xs transition-transform group-open:rotate-180"></i></summary>
+                            <p class="text-sm text-slate-600 leading-relaxed mt-3">Prepare recent passport photographs, proof of age, previous school records, transfer documents where applicable, and medical information.</p>
+                        </details>
+                        <details class="group bg-white rounded-2xl border border-purple-100 p-5 shadow-sm">
+                            <summary class="cursor-pointer list-none flex items-center justify-between gap-4 font-bold text-sm text-brand-navy">How can I contact the admissions office?<i class="fa-solid fa-chevron-down text-brand-accent text-xs transition-transform group-open:rotate-180"></i></summary>
+                            <p class="text-sm text-slate-600 leading-relaxed mt-3">Use the WhatsApp button, call the school phone number, or email the admissions office using the contact details in the footer.</p>
+                        </details>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+
+        <!-- ================= PAGE 2: APPLY NOW PORTAL ================= -->
+        <div id="page-apply" class="page-view hidden py-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="mb-8 text-center max-w-2xl mx-auto">
+                <button onclick="switchPage('home')" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-violet hover:text-brand-navy mb-3">
+                    <i class="fa-solid fa-arrow-left"></i> Back to Main Website
+                </button>
+                <h1 class="font-serif-heading text-3xl sm:text-4xl font-extrabold text-brand-navy">Student Admission Application</h1>
+                <p class="text-slate-600 text-xs sm:text-sm mt-1">Complete the official admission form for Lilyspring International School.</p>
+            </div>
+
+            <!-- Form Container Card -->
+            <div class="bg-white rounded-3xl shadow-xl border border-purple-100 p-6 sm:p-10 relative">
+                
+                <!-- Application Form -->
+                <form id="admissionForm" onsubmit="handleApplicationSubmit(event)">
+                    
+                    <!-- SECTION 1: STUDENT DETAILS -->
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-center gap-3 pb-3 border-b border-purple-100">
+                            <div class="w-8 h-8 rounded-full bg-brand-navy text-white font-bold flex items-center justify-center text-sm">1</div>
+                            <h3 class="font-serif-heading font-bold text-lg text-brand-navy">Student's Personal Information</h3>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">First Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="appFirstName" required placeholder="e.g. Chinedu" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Last Name / Surname <span class="text-red-500">*</span></label>
+                                <input type="text" id="appLastName" required placeholder="e.g. Okonkwo" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Date of Birth <span class="text-red-500">*</span></label>
+                                <input type="date" id="appDOB" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Gender <span class="text-red-500">*</span></label>
+                                <select id="appGender" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet bg-white">
+                                    <option value="">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Class Applying For <span class="text-red-500">*</span></label>
+                                <select id="appClass" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet bg-white">
+                                    <option value="">Select Class</option>
+                                    <optgroup label="Primary School">
+                                        <option value="Primary 1">Primary 1</option>
+                                        <option value="Primary 2">Primary 2</option>
+                                        <option value="Primary 3">Primary 3</option>
+                                        <option value="Primary 4">Primary 4</option>
+                                        <option value="Primary 5">Primary 5</option>
+                                        <option value="Primary 6">Primary 6</option>
+                                    </optgroup>
+                                    <optgroup label="Junior Secondary School">
+                                        <option value="JSS 1">JSS 1</option>
+                                        <option value="JSS 2">JSS 2</option>
+                                        <option value="JSS 3">JSS 3</option>
+                                    </optgroup>
+                                    <optgroup label="Senior Secondary School">
+                                        <option value="SS 1 Science">SS 1 (Science)</option>
+                                        <option value="SS 1 Arts">SS 1 (Arts)</option>
+                                        <option value="SS 1 Commercial">SS 1 (Commercial)</option>
+                                        <option value="SS 2 Science">SS 2 (Science)</option>
+                                        <option value="SS 2 Arts">SS 2 (Arts)</option>
+                                        <option value="SS 2 Commercial">SS 2 (Commercial)</option>
+                                        <option value="SS 3">SS 3</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Passport Photograph (Mock Upload)</label>
+                                <input type="file" id="appPhoto" accept="image/*" class="w-full px-3 py-1.5 rounded-xl border border-slate-200 text-xs text-slate-500 bg-slate-50">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 2: ACADEMIC HISTORY -->
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-center gap-3 pb-3 border-b border-purple-100">
+                            <div class="w-8 h-8 rounded-full bg-brand-navy text-white font-bold flex items-center justify-center text-sm">2</div>
+                            <h3 class="font-serif-heading font-bold text-lg text-brand-navy">Academic History</h3>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Previous School Attended <span class="text-red-500">*</span></label>
+                                <input type="text" id="appPrevSchool" required placeholder="e.g. St. Jude Model Primary" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Last Class Passed <span class="text-red-500">*</span></label>
+                                <input type="text" id="appLastClass" required placeholder="e.g. Primary 5 or JSS 2" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet">
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Reason for Transfer (Optional)</label>
+                                <input type="text" id="appTransferReason" placeholder="e.g. Relocation to new neighborhood" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 3: PARENT / GUARDIAN INFORMATION -->
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-center gap-3 pb-3 border-b border-purple-100">
+                            <div class="w-8 h-8 rounded-full bg-brand-navy text-white font-bold flex items-center justify-center text-sm">3</div>
+                            <h3 class="font-serif-heading font-bold text-lg text-brand-navy">Parent / Guardian Details</h3>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Parent/Guardian Full Name <span class="text-red-500">*</span></label>
+                                <input type="text" id="appParentName" required placeholder="e.g. Dr. Emeka Okonkwo" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Relationship to Student <span class="text-red-500">*</span></label>
+                                <select id="appParentRel" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet bg-white">
+                                    <option value="Father">Father</option>
+                                    <option value="Mother">Mother</option>
+                                    <option value="Guardian">Guardian</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number <span class="text-red-500">*</span></label>
+                                <input type="tel" id="appParentPhone" required placeholder="e.g. 0803 000 0000" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Email Address <span class="text-red-500">*</span></label>
+                                <input type="email" id="appParentEmail" required placeholder="e.g. emeka@example.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet">
+                            </div>
+
+                            <div class="sm:col-span-2">
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Residential Address <span class="text-red-500">*</span></label>
+                                <textarea id="appAddress" required rows="2" placeholder="House address details..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SECTION 4: MEDICAL & NOTES -->
+                    <div class="space-y-6 mb-10">
+                        <div class="flex items-center gap-3 pb-3 border-b border-purple-100">
+                            <div class="w-8 h-8 rounded-full bg-brand-navy text-white font-bold flex items-center justify-center text-sm">4</div>
+                            <h3 class="font-serif-heading font-bold text-lg text-brand-navy">Medical Notes & Genotype</h3>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Blood Group</label>
+                                <select id="appBloodGroup" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet bg-white">
+                                    <option value="Unknown">Unknown / Not Tested</option>
+                                    <option value="O+">O Positive (O+)</option>
+                                    <option value="O-">O Negative (O-)</option>
+                                    <option value="A+">A Positive (A+)</option>
+                                    <option value="A-">A Negative (A-)</option>
+                                    <option value="B+">B Positive (B+)</option>
+                                    <option value="AB+">AB Positive (AB+)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Genotype</label>
+                                <select id="appGenotype" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet bg-white">
+                                    <option value="AA">AA</option>
+                                    <option value="AS">AS</option>
+                                    <option value="SS">SS</option>
+                                    <option value="AC">AC</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 mb-1">Known Allergies / Medical Notes</label>
+                                <input type="text" id="appMedicalNotes" placeholder="e.g. Asthma, peanut allergy..." class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Actions -->
+                    <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-end gap-4">
+                        <button type="button" onclick="switchPage('home')" class="w-full sm:w-auto px-6 py-3 rounded-full border border-slate-200 text-slate-600 hover:bg-slate-50 text-sm font-semibold">
+                            Cancel
+                        </button>
+                        <button type="submit" class="w-full sm:w-auto bg-brand-accent hover:bg-brand-accentHover text-white font-bold px-8 py-3.5 rounded-full shadow-lg shadow-orange-500/30 text-sm flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Submit Application Form</span>
+                        </button>
+                    </div>
+
+                </form>
+
+                <!-- Confirmation / Success View (Shown after submission) -->
+                <div id="applicationSuccessCard" class="hidden text-center py-8">
+                    <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center text-3xl mx-auto mb-4">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h2 class="font-serif-heading text-3xl font-bold text-brand-navy mb-2">Application Submitted Successfully!</h2>
+                    <p class="text-slate-600 text-sm max-w-md mx-auto mb-6">
+                        Thank you for choosing Lilyspring International School. Your application has been logged into our admissions system.
+                    </p>
+
+                    <!-- Printable Slip Card -->
+                    <div id="printableSlip" class="bg-purple-50/70 rounded-2xl p-6 border border-purple-100 max-w-lg mx-auto text-left mb-8 space-y-3">
+                        <div class="flex justify-between items-center pb-3 border-b border-purple-200">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-widest text-slate-500 font-bold">Reference Code</span>
+                                <div id="successRefCode" class="text-xl font-extrabold text-brand-accent">LIS-2026-00000</div>
+                            </div>
+                            <span class="px-3 py-1 bg-amber-100 text-amber-800 rounded-full text-xs font-bold">PENDING REVIEW</span>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-3 text-xs text-slate-700 pt-2">
+                            <div><strong class="text-slate-900">Student Name:</strong> <span id="successStudentName">-</span></div>
+                            <div><strong class="text-slate-900">Class Applying:</strong> <span id="successClass">-</span></div>
+                            <div><strong class="text-slate-900">Parent Name:</strong> <span id="successParentName">-</span></div>
+                            <div><strong class="text-slate-900">Phone:</strong> <span id="successPhone">-</span></div>
+                            <div class="col-span-2"><strong class="text-slate-900">Submission Date:</strong> <span id="successDate">-</span></div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button onclick="window.print()" class="w-full sm:w-auto bg-brand-navy text-white px-6 py-3 rounded-full font-bold text-xs flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-print"></i> Print Confirmation Slip
+                        </button>
+                        <button onclick="resetAndReturnHome()" class="w-full sm:w-auto bg-slate-100 text-slate-700 px-6 py-3 rounded-full font-semibold text-xs">
+                            Return to Home
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- ================= PAGE 3: ADMIN MANAGEMENT PANEL ================= -->
+        <div id="page-admin" class="page-view hidden py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- ADMIN LOGIN OVERLAY (If not authenticated) -->
+            <div id="adminAuthLock" class="bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-purple-100 max-w-md mx-auto text-center my-12">
+                <div class="w-16 h-16 rounded-2xl bg-brand-navy text-white flex items-center justify-center text-2xl mx-auto mb-4">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <h2 class="font-serif-heading text-2xl font-bold text-brand-navy mb-1">Admin Security Portal</h2>
+                <p class="text-xs text-slate-500 mb-6">Enter administrative passcode to manage school website & applications.</p>
+                
+                <form onsubmit="verifyAdminPasscode(event)" class="space-y-4">
+                    <div>
+                        <input type="password" id="adminPassInput" required placeholder="Enter your admin passcode" class="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:border-brand-violet text-center">
+                    </div>
+                    <button type="submit" class="w-full bg-brand-navy hover:bg-indigo-900 text-white font-bold py-3 rounded-xl text-sm shadow-md transition-all">
+                        Unlock Admin Dashboard
+                    </button>
+                </form>
+            </div>
+
+            <!-- ADMIN DASHBOARD (When authenticated) -->
+            <div id="adminDashboard" class="hidden space-y-8">
+                
+                <!-- Admin Header Bar -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-purple-200">
+                    <div>
+                        <span class="text-xs font-bold text-brand-accent uppercase tracking-wider">Control Panel</span>
+                        <h1 class="font-serif-heading text-3xl font-extrabold text-brand-navy">School Administration</h1>
+                    </div>
+                    
+                    <div class="flex items-center gap-3">
+                        <button onclick="logoutAdmin()" class="bg-slate-200 hover:bg-slate-300 text-slate-700 px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-2">
+                            <i class="fa-solid fa-right-from-bracket"></i> Lock Session
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Admin Navigation Tabs -->
+                <div class="flex gap-2 border-b border-slate-200 overflow-x-auto pb-1">
+                    <button onclick="switchAdminTab('applications')" id="adminTabBtn-applications" class="admin-tab-btn px-5 py-2.5 rounded-t-xl font-bold text-xs sm:text-sm bg-brand-navy text-white">
+                        <i class="fa-solid fa-id-card mr-1.5"></i> Admission Applications
+                    </button>
+                    <button onclick="switchAdminTab('content')" id="adminTabBtn-content" class="admin-tab-btn px-5 py-2.5 rounded-t-xl font-bold text-xs sm:text-sm bg-slate-100 text-slate-600 hover:bg-slate-200">
+                        <i class="fa-solid fa-sliders mr-1.5"></i> Website Content & Info
+                    </button>
+                    <button onclick="switchAdminTab('announcements')" id="adminTabBtn-announcements" class="admin-tab-btn px-5 py-2.5 rounded-t-xl font-bold text-xs sm:text-sm bg-slate-100 text-slate-600 hover:bg-slate-200">
+                        <i class="fa-solid fa-bullhorn mr-1.5"></i> Manage Announcements
+                    </button>
+                </div>
+
+                <!-- TAB 1: APPLICATIONS MANAGER -->
+                <div id="adminTabContent-applications" class="admin-tab-content space-y-6">
+                    
+                    <!-- Stats Overview -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                        <div class="bg-white p-4 rounded-2xl border border-purple-100 shadow-sm">
+                            <div class="text-slate-500 text-xs font-semibold">Total Applications</div>
+                            <div id="adminTotalCount" class="text-2xl font-bold text-brand-navy mt-1">0</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-purple-100 shadow-sm">
+                            <div class="text-amber-600 text-xs font-semibold">Pending Review</div>
+                            <div id="adminPendingCount" class="text-2xl font-bold text-amber-600 mt-1">0</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-purple-100 shadow-sm">
+                            <div class="text-emerald-600 text-xs font-semibold">Approved</div>
+                            <div id="adminApprovedCount" class="text-2xl font-bold text-emerald-600 mt-1">0</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border border-purple-100 shadow-sm">
+                            <div class="text-rose-600 text-xs font-semibold">Rejected / Declined</div>
+                            <div id="adminRejectedCount" class="text-2xl font-bold text-rose-600 mt-1">0</div>
+                        </div>
+                    </div>
+
+                    <!-- Filter & Search Toolbar -->
+                    <div class="bg-white p-4 rounded-2xl border border-purple-100 shadow-sm flex flex-col sm:flex-row gap-4 items-center justify-between">
+                        <div class="w-full sm:w-72 relative">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                            <input type="text" id="adminSearchInput" onkeyup="renderAdminApplicationsTable()" placeholder="Search student name or ref..." class="w-full pl-9 pr-4 py-2 rounded-xl border border-slate-200 text-xs focus:outline-none focus:border-brand-violet">
+                        </div>
+
+                        <div class="flex items-center gap-3 w-full sm:w-auto">
+                            <span class="text-xs text-slate-500 font-semibold shrink-0">Filter Status:</span>
+                            <select id="adminStatusFilter" onchange="renderAdminApplicationsTable()" class="w-full sm:w-auto px-3 py-2 rounded-xl border border-slate-200 text-xs font-medium bg-white focus:outline-none">
+                                <option value="ALL">All Statuses</option>
+                                <option value="Pending">Pending</option>
+                                <option value="Under Review">Under Review</option>
+                                <option value="Approved">Approved</option>
+                                <option value="Rejected">Rejected</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Applications Table -->
+                    <div class="bg-white rounded-2xl border border-purple-100 shadow-sm overflow-hidden">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left border-collapse">
+                                <thead>
+                                    <tr class="bg-slate-50 text-[11px] font-bold text-slate-500 uppercase tracking-wider border-b border-slate-100">
+                                        <th class="p-4">Ref Code</th>
+                                        <th class="p-4">Student Name</th>
+                                        <th class="p-4">Class</th>
+                                        <th class="p-4">Parent Phone</th>
+                                        <th class="p-4">Submitted</th>
+                                        <th class="p-4">Status</th>
+                                        <th class="p-4 text-right">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="adminApplicationsTbody" class="divide-y divide-slate-100 text-xs text-slate-700">
+                                    <!-- Dynamic Rows -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- TAB 2: WEBSITE CONTENT MANAGER -->
+                <div id="adminTabContent-content" class="admin-tab-content hidden space-y-6">
+                    <div class="bg-white rounded-2xl border border-purple-100 p-6 sm:p-8 shadow-sm">
+                        <h3 class="font-serif-heading font-bold text-xl text-brand-navy mb-4 pb-2 border-b border-purple-100">School Profile & Contact Settings</h3>
+                        
+                        <form onsubmit="saveSchoolContentSettings(event)" class="space-y-5">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">School Name</label>
+                                    <input type="text" id="editSchoolName" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">School Subtitle / Type</label>
+                                    <input type="text" id="editSchoolSub" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
+                                    <input type="text" id="editSchoolPhone" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Email Address</label>
+                                    <input type="email" id="editSchoolEmail" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs">
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Physical Address</label>
+                                    <input type="text" id="editSchoolAddress" required class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs">
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Admin Passcode</label>
+                                    <input type="text" id="editAdminPasscode" placeholder="Set a strong admin passcode" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs">
+                                    <p class="text-[10px] text-slate-500 mt-1">Use a passcode with at least 8 characters. Do not leave it blank.</p>
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Web3Forms Access Key</label>
+                                    <input type="text" id="editWeb3FormsAccessKey" placeholder="Paste your Web3Forms access key here" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs">
+                                    <p class="text-[10px] text-slate-500 mt-1">Leave blank to keep simulation mode. When set, submissions are sent through the Web3Forms API.</p>
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Hero Section Description</label>
+                                    <textarea id="editHeroTagline" rows="2" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Mission Statement</label>
+                                    <textarea id="editMission" rows="3" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs"></textarea>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Vision Statement</label>
+                                    <textarea id="editVision" rows="3" class="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-xs"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="pt-4 border-t border-slate-100 flex justify-end">
+                                <button type="submit" class="bg-brand-navy hover:bg-indigo-900 text-white font-bold px-6 py-2.5 rounded-xl text-xs shadow-md">
+                                    Save Website Changes
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- TAB 3: ANNOUNCEMENTS MANAGER -->
+                <div id="adminTabContent-announcements" class="admin-tab-content hidden space-y-6">
+                    
+                    <div class="bg-white rounded-2xl border border-purple-100 p-6 shadow-sm">
+                        <h3 class="font-serif-heading font-bold text-lg text-brand-navy mb-4">Add New School Announcement</h3>
+                        <form onsubmit="handleNewAnnouncement(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Announcement Title</label>
+                                    <input type="text" id="annTitle" required placeholder="e.g. 2nd Term Resumption Notice" class="w-full px-4 py-2 rounded-xl border border-slate-200 text-xs">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Category Badge</label>
+                                    <select id="annCategory" class="w-full px-4 py-2 rounded-xl border border-slate-200 text-xs bg-white">
+                                        <option value="Academic Notice">Academic Notice</option>
+                                        <option value="Admission Circular">Admission Circular</option>
+                                        <option value="Parents Meeting">Parents Meeting</option>
+                                        <option value="Holiday Notice">Holiday Notice</option>
+                                    </select>
+                                </div>
+                                <div class="sm:col-span-2">
+                                    <label class="block text-xs font-bold text-slate-700 mb-1">Announcement Message Body</label>
+                                    <textarea id="annBody" required rows="3" placeholder="Full circular text..." class="w-full px-4 py-2 rounded-xl border border-slate-200 text-xs"></textarea>
+                                </div>
+                            </div>
+                            <button type="submit" class="bg-brand-accent hover:bg-brand-accentHover text-white font-bold px-5 py-2.5 rounded-xl text-xs">
+                                Post Notice
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Manage Current List -->
+                    <div class="bg-white rounded-2xl border border-purple-100 p-6 shadow-sm">
+                        <h3 class="font-serif-heading font-bold text-lg text-brand-navy mb-4">Active Announcements</h3>
+                        <div id="adminAnnouncementsList" class="space-y-3">
+                            <!-- Dynamic list -->
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Modal Dialog for Application Details -->
+    <div id="appDetailsModal" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative border border-purple-100 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeAppDetailsModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center hover:bg-slate-200">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="appModalContent">
+                <!-- Content populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-12 border-t border-slate-800 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                
+                <div class="space-y-3">
+                    <div class="flex items-center gap-2 text-white">
+                        <i class="fa-solid fa-graduation-cap text-brand-accent text-xl"></i>
+                        <span id="footerSchoolName" class="font-serif-heading font-bold text-lg">Lilyspring</span>
+                    </div>
+                    <p class="text-slate-400 text-xs leading-relaxed">Ministry approved basic primary and secondary educational institution producing excellent future leaders.</p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-3">Quick Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="javascript:void(0)" onclick="switchPage('home')" class="hover:text-white">Home Page</a></li>
+                        <li><a href="javascript:void(0)" onclick="switchPage('apply')" class="hover:text-white">Admission Portal</a></li>
+                        <li><a href="javascript:void(0)" onclick="scrollToSection('announcements')" class="hover:text-white">Announcements</a></li>
+                        <li><a href="javascript:void(0)" onclick="scrollToSection('gallery')" class="hover:text-white">Gallery</a></li>
+                        <li><a href="javascript:void(0)" onclick="scrollToSection('staff')" class="hover:text-white">Our Team</a></li>
+                        <li><a href="javascript:void(0)" onclick="scrollToSection('testimonials')" class="hover:text-white">Testimonials</a></li>
+                        <li><a href="javascript:void(0)" onclick="scrollToSection('faq')" class="hover:text-white">FAQs</a></li>
+                        <li><a href="javascript:void(0)" onclick="toggleAdminAccess()" class="hover:text-white">Admin Management</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-3">Classes</h4>
+                    <ul class="space-y-2">
+                        <li>Primary School (P1 - P6)</li>
+                        <li>Junior Secondary (JSS 1 - 3)</li>
+                        <li>Senior Secondary (SS 1 - 3)</li>
+                        <li>Science, Arts & Commercial</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold mb-3">Contact Us</h4>
+                    <p id="footerAddress" class="text-slate-400 mb-2">125 Lilyspring Avenue, GRA, Nigeria</p>
+                    <p id="footerPhone" class="text-slate-400 mb-1"><i class="fa-solid fa-phone text-brand-accent mr-1"></i> +234 803 000 0000</p>
+                    <p id="footerEmail" class="text-slate-400"><i class="fa-solid fa-envelope text-brand-accent mr-1"></i> info@lilyspring.edu.ng</p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between text-slate-500 gap-4">
+                <div>&copy; 2026 Lilyspring International School. All rights reserved.</div>
+                <button onclick="toggleAdminAccess()" class="text-slate-400 hover:text-white flex items-center gap-1">
+                    <i class="fa-solid fa-lock text-[10px]"></i> Admin Login
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/2348031234567?text=Hello%20Lilyspring%20International%20School,%20I%20would%20like%20to%20ask%20about%20admissions." target="_blank" rel="noopener noreferrer" aria-label="Chat with Lilyspring on WhatsApp" title="Chat with us on WhatsApp" class="fixed bottom-5 right-5 z-30 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-xl flex items-center justify-center text-2xl transition-transform hover:scale-105">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- JavaScript Application Logic & LocalStorage Data Engine -->
+    <script>
+
+        // Default Initial School Settings
+        const DEFAULT_SETTINGS = {
+            name: "Lilyspring International School",
+            subtitle: "Basic & Secondary Education",
+            phone: "+234 803 123 4567",
+            email: "admissions@lilyspring.edu.ng",
+            address: "Plot 12, Lilyspring Educational Way, GRA, Nigeria",
+            heroTagline: "At Lilyspring International School, we provide holistic primary and secondary education grounded in moral values, academic rigor, modern science, ICT, and practical leadership skill acquisition.",
+            mission: "To provide an enriching learning environment that equips students with academic excellence, digital literacy, strong moral character, and critical life skills for future societal leadership.",
+            vision: "To be a premier basic education institution recognized across Nigeria for cultivating resourceful, innovative, and ethically grounded scholars prepared for global opportunities.",
+            adminPasscode: "Lilyspring@2026",
+            web3FormsAccessKey: ""
+        };
+
+        // Default Initial Announcements List
+        const DEFAULT_ANNOUNCEMENTS = [
+            {
+                id: "ann-1",
+                title: "Entrance Examinations for 2026/2027 Academic Session",
+                category: "Admission Circular",
+                date: "2026-03-15",
+                body: "Entrance screening for prospective Primary 1, JSS 1, and SS 1 candidates is scheduled for Saturday, 25th April 2026. Online registration is now active."
+            },
+            {
+                id: "ann-2",
+                title: "Parent-Teacher Association (PTA) General Meeting",
+                category: "Parents Meeting",
+                date: "2026-03-10",
+                body: "The 2nd Term PTA meeting holds this Thursday at the main assembly hall by 10:00 AM. Matters regarding ICT lab upgrade will be discussed."
+            }
+        ];
+
+        // Start with a clean dashboard; real applications are stored only after submission.
+        const DEFAULT_APPLICATIONS = [];
+
+        // LocalStorage Initializers
+        function getStoredSettings() {
+            const data = localStorage.getItem('lis_school_settings');
+            return data ? JSON.parse(data) : DEFAULT_SETTINGS;
+        }
+
+        function saveStoredSettings(settings) {
+            localStorage.setItem('lis_school_settings', JSON.stringify(settings));
+        }
+
+        function getStoredApplications() {
+            const data = localStorage.getItem('lis_applications');
+            return data ? JSON.parse(data) : DEFAULT_APPLICATIONS;
+        }
+
+        function saveStoredApplications(apps) {
+            localStorage.setItem('lis_applications', JSON.stringify(apps));
+        }
+
+        function getStoredAnnouncements() {
+            const data = localStorage.getItem('lis_announcements');
+            return data ? JSON.parse(data) : DEFAULT_ANNOUNCEMENTS;
+        }
+
+        function saveStoredAnnouncements(ann) {
+            localStorage.setItem('lis_announcements', JSON.stringify(ann));
+        }
+
+
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-view').forEach(page => {
+                page.classList.add('hidden');
+            });
+
+            const targetPage = document.getElementById(`page-${pageId}`);
+            if(targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollToSection(sectionId) {
+            switchPage('home');
+            setTimeout(() => {
+                const element = document.getElementById(sectionId);
+                if(element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobileMenu').classList.add('hidden');
+            document.getElementById('menuIcon').className = "fa-solid fa-bars text-2xl";
+        }
+
+        // Mobile Menu Button Event
+        document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuIcon = document.getElementById('menuIcon');
+            mobileMenu.classList.toggle('hidden');
+            if(mobileMenu.classList.contains('hidden')) {
+                menuIcon.className = "fa-solid fa-bars text-2xl";
+            } else {
+                menuIcon.className = "fa-solid fa-xmark text-2xl";
+            }
+        });
+
+        function showToast(message, type = 'success') {
+            const toastContainer = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = `p-4 rounded-xl text-xs font-bold text-white shadow-xl pointer-events-auto transition-all duration-300 flex items-center gap-2 transform translate-y-2 opacity-0 ${type === 'success' ? 'bg-emerald-600' : 'bg-brand-navy'}`;
+            toast.innerHTML = `<i class="fa-solid ${type === 'success' ? 'fa-circle-check' : 'fa-circle-info'} text-sm"></i><span>${message}</span>`;
+            
+            toastContainer.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.classList.remove('translate-y-2', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('opacity-0', 'translate-y-2');
+                setTimeout(() => toast.remove(), 300);
+            }, 3500);
+        }
+
+        function loadFrontEndContent() {
+            const settings = getStoredSettings();
+            
+            // Text Replacements
+            document.getElementById('navSchoolName').innerText = settings.name.split(' ')[0] || "Lilyspring";
+            document.getElementById('navSchoolSub').innerText = settings.subtitle || "International School";
+            document.getElementById('displayHeroTagline').innerText = settings.heroTagline;
+            document.getElementById('displayMission').innerText = settings.mission;
+            document.getElementById('displayVision').innerText = settings.vision;
+
+            // Footer Details
+            document.getElementById('footerSchoolName').innerText = settings.name;
+            document.getElementById('footerAddress').innerText = settings.address;
+            document.getElementById('footerPhone').innerHTML = `<i class="fa-solid fa-phone text-brand-accent mr-1"></i> ${settings.phone}`;
+            document.getElementById('footerEmail').innerHTML = `<i class="fa-solid fa-envelope text-brand-accent mr-1"></i> ${settings.email}`;
+
+            // Render Admission Requirements List
+            const reqs = [
+                "Completed Admission Application Form (submitted via online portal or campus)",
+                "2 recent passport photographs of the candidate",
+                "Copy of Official Birth Certificate or Sworn Declaration of Age",
+                "Previous school academic progress report cards (Last 2 terms)",
+                "Transfer certificate / Testimonial from former basic school",
+                "Medical fitness certificate & blood genotype report"
+            ];
+
+            const reqList = document.getElementById('admissionReqList');
+            reqList.innerHTML = reqs.map(r => `
+                <li class="flex items-start gap-2.5">
+                    <i class="fa-solid fa-circle-check text-brand-accent mt-1 text-xs shrink-0"></i>
+                    <span>${r}</span>
+                </li>
+            `).join('');
+
+            // Render Announcements
+            renderAnnouncementsFrontEnd();
+        }
+
+        function renderAnnouncementsFrontEnd() {
+            const announcements = getStoredAnnouncements();
+            const grid = document.getElementById('announcementsGrid');
+            
+            if(announcements.length === 0) {
+                grid.innerHTML = `<div class="col-span-full text-center text-slate-400 text-xs py-8">No announcements posted currently.</div>`;
+                return;
+            }
+
+            grid.innerHTML = announcements.map(item => `
+                <div class="bg-white rounded-2xl p-6 border border-purple-100 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-purple-100 text-brand-violet">${item.category}</span>
+                            <span class="text-[10px] text-slate-400"><i class="fa-solid fa-calendar mr-1"></i>${item.date}</span>
+                        </div>
+                        <h3 class="font-bold text-slate-800 text-base mb-2">${item.title}</h3>
+                        <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">${item.body}</p>
+                    </div>
+                    <div class="mt-4 pt-3 border-t border-slate-50 text-[11px] font-bold text-brand-accent flex items-center justify-between">
+                        <span>Official Circular</span>
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function handleApplicationSubmit(e) {
+            e.preventDefault();
+
+            const refCode = "LIS-2026-" + Math.floor(10000 + Math.random() * 90000);
+            const now = new Date();
+            const formattedDate = now.toLocaleDateString('en-GB') + ' ' + now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+            const newApp = {
+                refCode: refCode,
+                firstName: document.getElementById('appFirstName').value,
+                lastName: document.getElementById('appLastName').value,
+                dob: document.getElementById('appDOB').value,
+                gender: document.getElementById('appGender').value,
+                classApplying: document.getElementById('appClass').value,
+                prevSchool: document.getElementById('appPrevSchool').value,
+                lastClass: document.getElementById('appLastClass').value,
+                transferReason: document.getElementById('appTransferReason').value || "N/A",
+                parentName: document.getElementById('appParentName').value,
+                parentRel: document.getElementById('appParentRel').value,
+                parentPhone: document.getElementById('appParentPhone').value,
+                parentEmail: document.getElementById('appParentEmail').value,
+                address: document.getElementById('appAddress').value,
+                bloodGroup: document.getElementById('appBloodGroup').value,
+                genotype: document.getElementById('appGenotype').value,
+                medicalNotes: document.getElementById('appMedicalNotes').value || "None",
+                status: "Pending",
+                submittedAt: formattedDate
+            };
+
+            // Save to LocalStorage
+            const apps = getStoredApplications();
+            apps.unshift(newApp);
+            saveStoredApplications(apps);
+
+            // Send notifications through Web3Forms to both the admin and the parent
+            const schoolEmail = getStoredSettings().email || 'admissions@lilyspring.edu.ng';
+            const emailMessage = `
+New admission application submitted.
+
+Student: ${newApp.firstName} ${newApp.lastName}
+Class: ${newApp.classApplying}
+Parent: ${newApp.parentName}
+Parent Email: ${newApp.parentEmail}
+Parent Phone: ${newApp.parentPhone}
+Address: ${newApp.address}
+Previous School: ${newApp.prevSchool}
+Status: ${newApp.status}
+Reference: ${refCode}
+Submission Date: ${formattedDate}
+            `.trim();
+
+            const parentConfirmationMessage = `
+Dear ${newApp.parentName},
+
+Thank you for submitting an application for ${newApp.firstName} ${newApp.lastName} to Lilyspring International School.
+
+Your reference number is: ${refCode}
+Class applied for: ${newApp.classApplying}
+Submission date: ${formattedDate}
+
+Our admissions team will review your application and contact you soon.
+
+Best regards,
+Lilyspring International School
+            `.trim();
+
+            sendViaWeb3Forms({
+                email: schoolEmail,
+                subject: `New Admissions Application Received - ${refCode}`,
+                message: `A new application was submitted through the Lilyspring website.\n\n${emailMessage}`,
+                fromName: 'Lilyspring Admissions Portal'
+            });
+
+            sendViaWeb3Forms({
+                email: newApp.parentEmail,
+                subject: `Application Received - Reference ${refCode}`,
+                message: parentConfirmationMessage,
+                fromName: 'Lilyspring Admissions Office'
+            });
+
+            // Populate Success Card
+            document.getElementById('successRefCode').innerText = refCode;
+            document.getElementById('successStudentName').innerText = `${newApp.firstName} ${newApp.lastName}`;
+            document.getElementById('successClass').innerText = newApp.classApplying;
+            document.getElementById('successParentName').innerText = newApp.parentName;
+            document.getElementById('successPhone').innerText = newApp.parentPhone;
+            document.getElementById('successDate').innerText = formattedDate;
+
+            // Display Success Card View
+            document.getElementById('admissionForm').classList.add('hidden');
+            document.getElementById('applicationSuccessCard').classList.remove('hidden');
+
+            showToast("Application submitted successfully!");
+        }
+
+        function resetAndReturnHome() {
+            document.getElementById('admissionForm').reset();
+            document.getElementById('admissionForm').classList.remove('hidden');
+            document.getElementById('applicationSuccessCard').classList.add('hidden');
+            switchPage('home');
+        }
+
+        let isAdminLoggedIn = false;
+
+        function toggleAdminAccess() {
+            switchPage('admin');
+            if(!isAdminLoggedIn) {
+                document.getElementById('adminAuthLock').classList.remove('hidden');
+                document.getElementById('adminDashboard').classList.add('hidden');
+            } else {
+                document.getElementById('adminAuthLock').classList.add('hidden');
+                document.getElementById('adminDashboard').classList.remove('hidden');
+                renderAdminDashboard();
+            }
+        }
+
+        function verifyAdminPasscode(e) {
+            e.preventDefault();
+            const pass = document.getElementById('adminPassInput').value.trim();
+            const settings = getStoredSettings();
+            const validPasscode = (settings.adminPasscode || 'Lilyspring@2026').trim();
+
+            if (pass && pass.length >= 8 && pass === validPasscode) {
+                isAdminLoggedIn = true;
+                sessionStorage.setItem('lis_admin_session', 'true');
+                localStorage.removeItem('lis_admin_session');
+                document.getElementById('adminAuthLock').classList.add('hidden');
+                document.getElementById('adminDashboard').classList.remove('hidden');
+                renderAdminDashboard();
+                showToast("Admin session unlocked!");
+            } else {
+                isAdminLoggedIn = false;
+                sessionStorage.removeItem('lis_admin_session');
+                localStorage.removeItem('lis_admin_session');
+                showToast("Invalid Admin Passcode!", "error");
+            }
+        }
+
+        function logoutAdmin() {
+            isAdminLoggedIn = false;
+            sessionStorage.removeItem('lis_admin_session');
+            localStorage.removeItem('lis_admin_session');
+            document.getElementById('adminPassInput').value = '';
+            document.getElementById('adminAuthLock').classList.remove('hidden');
+            document.getElementById('adminDashboard').classList.add('hidden');
+            showToast("Admin session locked");
+        }
+
+        function switchAdminTab(tabName) {
+            document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+                btn.className = "admin-tab-btn px-5 py-2.5 rounded-t-xl font-bold text-xs sm:text-sm bg-slate-100 text-slate-600 hover:bg-slate-200";
+            });
+            document.getElementById(`adminTabBtn-${tabName}`).className = "admin-tab-btn px-5 py-2.5 rounded-t-xl font-bold text-xs sm:text-sm bg-brand-navy text-white";
+
+            document.querySelectorAll('.admin-tab-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            document.getElementById(`adminTabContent-${tabName}`).classList.remove('hidden');
+        }
+
+        function renderAdminDashboard() {
+            renderAdminApplicationsTable();
+            populateContentManagerForms();
+            renderAdminAnnouncementsList();
+        }
+
+        function renderAdminApplicationsTable() {
+            const apps = getStoredApplications();
+            const search = document.getElementById('adminSearchInput').value.toLowerCase();
+            const statusFilter = document.getElementById('adminStatusFilter').value;
+
+            // Stats Update
+            document.getElementById('adminTotalCount').innerText = apps.length;
+            document.getElementById('adminPendingCount').innerText = apps.filter(a => a.status === 'Pending').length;
+            document.getElementById('adminApprovedCount').innerText = apps.filter(a => a.status === 'Approved').length;
+            document.getElementById('adminRejectedCount').innerText = apps.filter(a => a.status === 'Rejected').length;
+
+            const tbody = document.getElementById('adminApplicationsTbody');
+
+            // Filter logic
+            const filtered = apps.filter(app => {
+                const matchesSearch = (app.firstName + ' ' + app.lastName + ' ' + app.refCode + ' ' + app.parentName).toLowerCase().includes(search);
+                const matchesStatus = statusFilter === 'ALL' || app.status === statusFilter;
+                return matchesSearch && matchesStatus;
+            });
+
+            if(filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="7" class="p-6 text-center text-slate-400">No applications match the search criteria.</td></tr>`;
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(app => {
+                let badgeClass = "bg-amber-100 text-amber-800";
+                if(app.status === 'Approved') badgeClass = "bg-emerald-100 text-emerald-800";
+                if(app.status === 'Rejected') badgeClass = "bg-rose-100 text-rose-800";
+                if(app.status === 'Under Review') badgeClass = "bg-blue-100 text-blue-800";
+
+                return `
+                    <tr class="hover:bg-purple-50/50 transition-colors">
+                        <td class="p-4 font-mono font-bold text-brand-navy">${app.refCode}</td>
+                        <td class="p-4 font-bold text-slate-800">${app.firstName} ${app.lastName}</td>
+                        <td class="p-4">${app.classApplying}</td>
+                        <td class="p-4">${app.parentPhone}</td>
+                        <td class="p-4 text-slate-500">${app.submittedAt}</td>
+                        <td class="p-4">
+                            <span class="px-2.5 py-1 rounded-full text-[10px] font-bold ${badgeClass}">${app.status}</span>
+                        </td>
+                        <td class="p-4 text-right">
+                            <button onclick="viewApplicationDetails('${app.refCode}')" class="bg-brand-navy text-white px-3 py-1.5 rounded-lg text-[11px] font-bold hover:bg-indigo-900 transition-colors">
+                                View / Update
+                            </button>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // View Single Application Details & Update Status Modal
+        function viewApplicationDetails(refCode) {
+            const apps = getStoredApplications();
+            const app = apps.find(a => a.refCode === refCode);
+            if(!app) return;
+
+            const modalContent = document.getElementById('appModalContent');
+            modalContent.innerHTML = `
+                <div class="space-y-6">
+                    <div class="border-b border-slate-100 pb-3">
+                        <span class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Application Summary</span>
+                        <h2 class="font-serif-heading text-2xl font-bold text-brand-navy">${app.firstName} ${app.lastName} (${app.refCode})</h2>
+                        <span class="text-xs text-slate-500">Submitted on: ${app.submittedAt}</span>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4 text-xs text-slate-700 bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                        <div><strong>Class Applying:</strong> ${app.classApplying}</div>
+                        <div><strong>Date of Birth:</strong> ${app.dob}</div>
+                        <div><strong>Gender:</strong> ${app.gender}</div>
+                        <div><strong>Previous School:</strong> ${app.prevSchool}</div>
+                        <div><strong>Last Class Passed:</strong> ${app.lastClass}</div>
+                        <div><strong>Transfer Reason:</strong> ${app.transferReason}</div>
+                    </div>
+
+                    <div class="space-y-2 text-xs text-slate-700 bg-purple-50/50 p-4 rounded-2xl border border-purple-100">
+                        <h4 class="font-bold text-brand-navy">Parent/Guardian Information</h4>
+                        <div><strong>Name:</strong> ${app.parentName} (${app.parentRel})</div>
+                        <div><strong>Phone:</strong> ${app.parentPhone} | <strong>Email:</strong> ${app.parentEmail}</div>
+                        <div><strong>Address:</strong> ${app.address}</div>
+                    </div>
+
+                    <div class="grid grid-cols-3 gap-3 text-xs bg-orange-50/50 p-4 rounded-2xl border border-orange-100">
+                        <div><strong>Blood Group:</strong> ${app.bloodGroup}</div>
+                        <div><strong>Genotype:</strong> ${app.genotype}</div>
+                        <div><strong>Medical Notes:</strong> ${app.medicalNotes}</div>
+                    </div>
+
+                    <!-- Update Status Form -->
+                    <div class="pt-4 border-t border-slate-100">
+                        <label class="block text-xs font-bold text-slate-800 mb-2">Update Application Status</label>
+                        <div class="flex gap-2">
+                            <select id="modalStatusSelect" class="flex-grow px-3 py-2 rounded-xl border border-slate-200 text-xs font-semibold bg-white">
+                                <option value="Pending" ${app.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                                <option value="Under Review" ${app.status === 'Under Review' ? 'selected' : ''}>Under Review</option>
+                                <option value="Approved" ${app.status === 'Approved' ? 'selected' : ''}>Approved</option>
+                                <option value="Rejected" ${app.status === 'Rejected' ? 'selected' : ''}>Rejected</option>
+                            </select>
+                            <button onclick="saveApplicationStatus('${app.refCode}')" class="bg-brand-accent hover:bg-brand-accentHover text-white px-5 py-2 rounded-xl text-xs font-bold transition-colors">
+                                Save Status
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            document.getElementById('appDetailsModal').classList.remove('hidden');
+            document.getElementById('appDetailsModal').classList.add('flex');
+        }
+
+        function closeAppDetailsModal() {
+            document.getElementById('appDetailsModal').classList.add('hidden');
+            document.getElementById('appDetailsModal').classList.remove('flex');
+        }
+
+        function saveApplicationStatus(refCode) {
+            const newStatus = document.getElementById('modalStatusSelect').value;
+            const apps = getStoredApplications();
+            const index = apps.findIndex(a => a.refCode === refCode);
+            if(index !== -1) {
+                apps[index].status = newStatus;
+                saveStoredApplications(apps);
+                renderAdminApplicationsTable();
+                closeAppDetailsModal();
+                showToast(`Application status updated to ${newStatus}`);
+            }
+        }
+
+        function populateContentManagerForms() {
+            const settings = getStoredSettings();
+            document.getElementById('editSchoolName').value = settings.name;
+            document.getElementById('editSchoolSub').value = settings.subtitle;
+            document.getElementById('editSchoolPhone').value = settings.phone;
+            document.getElementById('editSchoolEmail').value = settings.email;
+            document.getElementById('editSchoolAddress').value = settings.address;
+            document.getElementById('editAdminPasscode').value = settings.adminPasscode || 'Lilyspring@2026';
+            document.getElementById('editWeb3FormsAccessKey').value = settings.web3FormsAccessKey || '';
+            document.getElementById('editHeroTagline').value = settings.heroTagline;
+            document.getElementById('editMission').value = settings.mission;
+            document.getElementById('editVision').value = settings.vision;
+        }
+
+        async function sendViaWeb3Forms({ email, subject, message, fromName = 'Lilyspring International School' }) {
+            const settings = getStoredSettings();
+            const accessKey = settings.web3FormsAccessKey || '';
+
+            if (!accessKey) {
+                console.log('Web3Forms access key missing. Using local simulation only.');
+                return { ok: false, simulated: true };
+            }
+
+            try {
+                const payload = {
+                    access_key: accessKey,
+                    subject,
+                    email,
+                    from_name: fromName,
+                    message
+                };
+
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const result = await response.json().catch(() => ({}));
+                if (!response.ok) {
+                    console.warn('Web3Forms error:', response.status, result);
+                    return { ok: false, simulated: false, result };
+                }
+
+                return { ok: true, simulated: false, result };
+            } catch (error) {
+                console.warn('Web3Forms request failed:', error);
+                return { ok: false, simulated: false, error };
+            }
+        }
+
+        function saveSchoolContentSettings(e) {
+            e.preventDefault();
+            const newAdminPasscode = document.getElementById('editAdminPasscode').value.trim();
+            if (!newAdminPasscode || newAdminPasscode.length < 8) {
+                showToast("Admin passcode must be at least 8 characters long.", "error");
+                return;
+            }
+
+            const newSettings = {
+                name: document.getElementById('editSchoolName').value,
+                subtitle: document.getElementById('editSchoolSub').value,
+                phone: document.getElementById('editSchoolPhone').value,
+                email: document.getElementById('editSchoolEmail').value,
+                address: document.getElementById('editSchoolAddress').value,
+                heroTagline: document.getElementById('editHeroTagline').value,
+                mission: document.getElementById('editMission').value,
+                vision: document.getElementById('editVision').value,
+                adminPasscode: newAdminPasscode,
+                web3FormsAccessKey: document.getElementById('editWeb3FormsAccessKey').value.trim()
+            };
+
+            saveStoredSettings(newSettings);
+            loadFrontEndContent();
+            showToast("Website settings updated live!");
+        }
+
+        function handleNewAnnouncement(e) {
+            e.preventDefault();
+            const ann = getStoredAnnouncements();
+            const newAnn = {
+                id: "ann-" + Date.now(),
+                title: document.getElementById('annTitle').value,
+                category: document.getElementById('annCategory').value,
+                date: new Date().toISOString().split('T')[0],
+                body: document.getElementById('annBody').value
+            };
+
+            ann.unshift(newAnn);
+            saveStoredAnnouncements(ann);
+            renderAdminAnnouncementsList();
+            renderAnnouncementsFrontEnd();
+
+            document.getElementById('annTitle').value = '';
+            document.getElementById('annBody').value = '';
+            showToast("Announcement published successfully!");
+        }
+
+        function deleteAnnouncement(id) {
+            let ann = getStoredAnnouncements();
+            ann = ann.filter(a => a.id !== id);
+            saveStoredAnnouncements(ann);
+            renderAdminAnnouncementsList();
+            renderAnnouncementsFrontEnd();
+            showToast("Announcement removed");
+        }
+
+        function renderAdminAnnouncementsList() {
+            const ann = getStoredAnnouncements();
+            const list = document.getElementById('adminAnnouncementsList');
+
+            if(ann.length === 0) {
+                list.innerHTML = `<p class="text-xs text-slate-400">No active announcements.</p>`;
+                return;
+            }
+
+            list.innerHTML = ann.map(item => `
+                <div class="p-3 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between gap-4">
+                    <div>
+                        <div class="font-bold text-xs text-slate-800">${item.title} <span class="text-[10px] text-purple-600 font-semibold">(${item.category})</span></div>
+                        <div class="text-[10px] text-slate-400">${item.date}</div>
+                    </div>
+                    <button onclick="deleteAnnouncement('${item.id}')" class="text-rose-600 hover:text-rose-800 text-xs p-1">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function downloadProspectus() {
+            const prospectus = `LILYSPRING INTERNATIONAL SCHOOL\n\nQuality Basic & Secondary Education\n\nCLASSES\nPrimary 1-6 | JSS 1-3 | SS 1-3\n\nADMISSIONS\nComplete the online application form and prepare proof of age, passport photographs, previous school records, transfer documents where applicable, and medical information.\n\nCONTACT\n${getStoredSettings().phone}\n${getStoredSettings().email}\n${getStoredSettings().address}\n`;
+            const file = new Blob([prospectus], { type: 'text/plain;charset=utf-8' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(file);
+            link.download = 'lilyspring-school-information.txt';
+            link.click();
+            URL.revokeObjectURL(link.href);
+        }
+
+        // Initialize App on Window Load
+        window.addEventListener('DOMContentLoaded', () => {
+            const sessionValue = sessionStorage.getItem('lis_admin_session') || localStorage.getItem('lis_admin_session');
+            if (sessionValue === 'true') {
+                isAdminLoggedIn = true;
+                sessionStorage.setItem('lis_admin_session', 'true');
+                localStorage.removeItem('lis_admin_session');
+            }
+            loadFrontEndContent();
+        });
+    </script>
+</body>
+</html>
