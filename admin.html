@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lilyspring Admin Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            navy: '#17143d',
+                            accent: '#f97316',
+                            accentHover: '#ea580c',
+                            violet: '#8b5cf6'
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f8f7ff 0%, #eef2ff 40%, #fdf2f8 100%);
+        }
+        .glass {
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-800">
+    <div class="max-w-7xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
+        <div id="adminAuthLock" class="max-w-md mx-auto my-12 rounded-3xl border border-purple-100 bg-white shadow-2xl p-8 sm:p-10">
+            <div class="mx-auto mb-5 flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-navy text-2xl text-white">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <h1 class="text-center text-2xl font-bold text-brand-navy">Admin Security Portal</h1>
+            <p class="mt-2 text-center text-xs text-slate-500">Enter the admin passcode to manage the website and admissions.</p>
+
+            <form id="adminLoginForm" class="mt-6 space-y-4">
+                <input id="adminPassInput" type="password" required placeholder="Enter admin passcode" class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:border-brand-violet focus:outline-none">
+                <button type="submit" class="w-full rounded-xl bg-brand-navy px-4 py-3 text-sm font-bold text-white transition hover:bg-indigo-900">Unlock Admin Dashboard</button>
+            </form>
+
+            <div class="mt-5 text-center text-xs text-slate-500">
+                <a href="index.html" class="font-semibold text-brand-violet hover:text-brand-navy">Return to website</a>
+            </div>
+        </div>
+
+        <div id="adminDashboard" class="hidden space-y-8">
+            <div class="flex flex-col gap-4 rounded-3xl border border-purple-100 bg-white p-5 shadow-lg sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                    <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-accent">Control Panel</div>
+                    <h2 class="mt-1 text-3xl font-bold text-brand-navy">School Administration</h2>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="index.html" class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100">Website</a>
+                    <button id="logoutAdminBtn" type="button" class="rounded-xl bg-slate-200 px-4 py-2 text-xs font-bold text-slate-700 hover:bg-slate-300">Lock Session</button>
+                </div>
+            </div>
+
+            <div class="flex gap-2 overflow-x-auto border-b border-slate-200 pb-1">
+                <button type="button" data-tab="applications" class="admin-tab-btn rounded-t-xl bg-brand-navy px-5 py-2.5 text-xs font-bold text-white sm:text-sm"><i class="fa-solid fa-id-card mr-1.5"></i>Admission Applications</button>
+                <button type="button" data-tab="content" class="admin-tab-btn rounded-t-xl bg-slate-100 px-5 py-2.5 text-xs font-bold text-slate-600 hover:bg-slate-200 sm:text-sm"><i class="fa-solid fa-sliders mr-1.5"></i>Website Content</button>
+                <button type="button" data-tab="announcements" class="admin-tab-btn rounded-t-xl bg-slate-100 px-5 py-2.5 text-xs font-bold text-slate-600 hover:bg-slate-200 sm:text-sm"><i class="fa-solid fa-bullhorn mr-1.5"></i>Announcements</button>
+            </div>
+
+            <div id="adminTabContent-applications" class="admin-tab-content space-y-6">
+                <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
+                    <div class="rounded-2xl border border-purple-100 bg-white p-4 shadow-sm">
+                        <div class="text-xs font-semibold text-slate-500">Total Applications</div>
+                        <div id="adminTotalCount" class="mt-1 text-2xl font-bold text-brand-navy">0</div>
+                    </div>
+                    <div class="rounded-2xl border border-purple-100 bg-white p-4 shadow-sm">
+                        <div class="text-xs font-semibold text-amber-600">Pending Review</div>
+                        <div id="adminPendingCount" class="mt-1 text-2xl font-bold text-amber-600">0</div>
+                    </div>
+                    <div class="rounded-2xl border border-purple-100 bg-white p-4 shadow-sm">
+                        <div class="text-xs font-semibold text-emerald-600">Approved</div>
+                        <div id="adminApprovedCount" class="mt-1 text-2xl font-bold text-emerald-600">0</div>
+                    </div>
+                    <div class="rounded-2xl border border-purple-100 bg-white p-4 shadow-sm">
+                        <div class="text-xs font-semibold text-rose-600">Rejected</div>
+                        <div id="adminRejectedCount" class="mt-1 text-2xl font-bold text-rose-600">0</div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-4 rounded-2xl border border-purple-100 bg-white p-4 shadow-sm sm:flex-row sm:items-center sm:justify-between">
+                    <div class="w-full sm:w-72">
+                        <div class="relative">
+                            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-xs text-slate-400"></i>
+                            <input id="adminSearchInput" type="text" placeholder="Search name or ref..." class="w-full rounded-xl border border-slate-200 py-2.5 pl-9 pr-4 text-xs focus:border-brand-violet focus:outline-none" onkeyup="renderAdminApplicationsTable()">
+                        </div>
+                    </div>
+                    <div class="flex w-full items-center gap-3 sm:w-auto">
+                        <span class="text-xs font-semibold text-slate-500">Filter:</span>
+                        <select id="adminStatusFilter" class="rounded-xl border border-slate-200 bg-white px-3 py-2 text-xs focus:outline-none" onchange="renderAdminApplicationsTable()">
+                            <option value="ALL">All Statuses</option>
+                            <option value="Pending">Pending</option>
+                            <option value="Under Review">Under Review</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Rejected">Rejected</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="overflow-hidden rounded-2xl border border-purple-100 bg-white shadow-sm">
+                    <div class="overflow-x-auto">
+                        <table class="w-full border-collapse text-left text-xs text-slate-700">
+                            <thead class="bg-slate-50 text-[11px] uppercase tracking-wider text-slate-500">
+                                <tr>
+                                    <th class="p-4">Ref Code</th>
+                                    <th class="p-4">Student</th>
+                                    <th class="p-4">Class</th>
+                                    <th class="p-4">Parent Phone</th>
+                                    <th class="p-4">Submitted</th>
+                                    <th class="p-4">Status</th>
+                                    <th class="p-4 text-right">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminApplicationsTbody" class="divide-y divide-slate-100"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="adminTabContent-content" class="admin-tab-content hidden">
+                <div class="rounded-2xl border border-purple-100 bg-white p-6 shadow-sm">
+                    <h3 class="border-b border-purple-100 pb-2 text-xl font-bold text-brand-navy">School Profile & Contact Settings</h3>
+                    <form id="settingsForm" class="mt-5 space-y-5">
+                        <div class="grid gap-4 sm:grid-cols-2">
+                            <div><label class="mb-1 block text-xs font-bold text-slate-700">School Name</label><input id="editSchoolName" required class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs focus:border-brand-violet focus:outline-none"></div>
+                            <div><label class="mb-1 block text-xs font-bold text-slate-700">School Subtitle</label><input id="editSchoolSub" required class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs focus:border-brand-violet focus:outline-none"></div>
+                            <div><label class="mb-1 block text-xs font-bold text-slate-700">Phone Number</label><input id="editSchoolPhone" required class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs focus:border-brand-violet focus:outline-none"></div>
+                            <div><label class="mb-1 block text-xs font-bold text-slate-700">Email Address</label><input id="editSchoolEmail" required class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs focus:border-brand-violet focus:outline-none"></div>
+                            <div class="sm:col-span-2"><label class="mb-1 block text-xs font-bold text-slate-700">Address</label><input id="editSchoolAddress" required class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs focus:border-brand-violet focus:outline-none"></div>
+                            <div class="sm:col-span-2"><label class="mb-1 block text-xs font-bold text-slate-700">Hero Tagline</label><textarea id="editHeroTagline" rows="3" required class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs focus:border-brand-violet focus:outline-none"></textarea></div>
+                            <div class="sm:col-span-2"><label class="mb-1 block text-xs font-bold text-slate-700">Mission</label><textarea id="editMission" rows="3" required class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs focus:border-brand-violet focus:outline-none"></textarea></div>
+                            <div class="sm:col-span-2"><label class="mb-1 block text-xs font-bold text-slate-700">Vision</label><textarea id="editVision" rows="3" required class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs focus:border-brand-violet focus:outline-none"></textarea></div>
+                            <div><label class="mb-1 block text-xs font-bold text-slate-700">Admin Passcode</label><input id="editAdminPasscode" required class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs focus:border-brand-violet focus:outline-none"></div>
+                            <div><label class="mb-1 block text-xs font-bold text-slate-700">Web3Forms Access Key</label><input id="editWeb3FormsAccessKey" class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs focus:border-brand-violet focus:outline-none"></div>
+                        </div>
+                        <button type="submit" class="rounded-xl bg-brand-navy px-5 py-3 text-xs font-bold text-white hover:bg-indigo-900">Save Settings</button>
+                    </form>
+                </div>
+            </div>
+
+            <div id="adminTabContent-announcements" class="admin-tab-content hidden">
+                <div class="rounded-2xl border border-purple-100 bg-white p-6 shadow-sm">
+                    <h3 class="border-b border-purple-100 pb-2 text-xl font-bold text-brand-navy">Manage Announcements</h3>
+                    <form id="announcementForm" class="mt-5 space-y-4">
+                        <div class="grid gap-4 sm:grid-cols-2">
+                            <div class="sm:col-span-2"><label class="mb-1 block text-xs font-bold text-slate-700">Title</label><input id="annTitle" required class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs focus:border-brand-violet focus:outline-none"></div>
+                            <div><label class="mb-1 block text-xs font-bold text-slate-700">Category</label><select id="annCategory" class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs focus:border-brand-violet focus:outline-none"><option>Admission Circular</option><option>Parents Meeting</option><option>School Event</option><option>General Notice</option></select></div>
+                            <div><label class="mb-1 block text-xs font-bold text-slate-700">Date</label><input id="annDate" type="date" class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs focus:border-brand-violet focus:outline-none"></div>
+                            <div class="sm:col-span-2"><label class="mb-1 block text-xs font-bold text-slate-700">Body</label><textarea id="annBody" rows="4" required class="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-xs focus:border-brand-violet focus:outline-none"></textarea></div>
+                        </div>
+                        <button type="submit" class="rounded-xl bg-brand-accent px-5 py-3 text-xs font-bold text-white hover:bg-brand-accentHover">Publish Announcement</button>
+                    </form>
+                    <div id="adminAnnouncementsList" class="mt-6 space-y-3"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="appDetailsModal" class="fixed inset-0 hidden items-center justify-center bg-slate-900/60 p-4 backdrop-blur-sm">
+        <div class="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl border border-purple-100 bg-white p-6 shadow-2xl sm:p-8">
+            <button id="closeModalBtn" type="button" class="absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full bg-slate-100 text-slate-500 hover:bg-slate-200">×</button>
+            <div id="appModalContent"></div>
+        </div>
+    </div>
+
+    <div id="toast" class="pointer-events-none fixed right-5 top-24 hidden rounded-xl bg-emerald-600 px-4 py-3 text-xs font-bold text-white shadow-xl"></div>
+
+    <script>
+        const DEFAULT_SETTINGS = {
+            name: 'Lilyspring International School',
+            subtitle: 'Basic & Secondary Education',
+            phone: '+234 803 123 4567',
+            email: 'admissions@lilyspring.edu.ng',
+            address: 'Plot 12, Lilyspring Educational Way, GRA, Nigeria',
+            heroTagline: 'At Lilyspring International School, we provide holistic primary and secondary education grounded in moral values, academic rigor, modern science, ICT, and practical leadership skill acquisition.',
+            mission: 'To provide an enriching learning environment that equips students with academic excellence, digital literacy, strong moral character, and critical life skills for future societal leadership.',
+            vision: 'To be a premier basic education institution recognized across Nigeria for cultivating resourceful, innovative, and ethically grounded scholars prepared for global opportunities.',
+            adminPasscode: 'Lilyspring@2026',
+            web3FormsAccessKey: ''
+        };
+
+        const DEFAULT_ANNOUNCEMENTS = [
+            { id: 'ann-1', title: 'Entrance Examinations for 2026/2027 Academic Session', category: 'Admission Circular', date: '2026-03-15', body: 'Entrance screening for prospective Primary 1, JSS 1, and SS 1 candidates is scheduled for Saturday, 25th April 2026. Online registration is now active.' },
+            { id: 'ann-2', title: 'Parent-Teacher Association (PTA) General Meeting', category: 'Parents Meeting', date: '2026-03-10', body: 'The 2nd Term PTA meeting holds this Thursday at the main assembly hall by 10:00 AM. Matters regarding ICT lab upgrade will be discussed.' }
+        ];
+
+        function getStoredSettings() {
+            const data = localStorage.getItem('lis_school_settings');
+            return data ? JSON.parse(data) : DEFAULT_SETTINGS;
+        }
+
+        function saveStoredSettings(settings) {
+            localStorage.setItem('lis_school_settings', JSON.stringify(settings));
+        }
+
+        function getStoredApplications() {
+            const data = localStorage.getItem('lis_applications');
+            return data ? JSON.parse(data) : [];
+        }
+
+        function saveStoredApplications(apps) {
+            localStorage.setItem('lis_applications', JSON.stringify(apps));
+        }
+
+        function getStoredAnnouncements() {
+            const data = localStorage.getItem('lis_announcements');
+            return data ? JSON.parse(data) : DEFAULT_ANNOUNCEMENTS;
+        }
+
+        function saveStoredAnnouncements(ann) {
+            localStorage.setItem('lis_announcements', JSON.stringify(ann));
+        }
+
+        function showToast(message, type = 'success') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = 'pointer-events-none fixed right-5 top-24 rounded-xl px-4 py-3 text-xs font-bold text-white shadow-xl ' + (type === 'success' ? 'bg-emerald-600' : 'bg-rose-600');
+            toast.classList.remove('hidden');
+            clearTimeout(showToast.timer);
+            showToast.timer = setTimeout(() => toast.classList.add('hidden'), 2800);
+        }
+
+        function switchAdminTab(tabName) {
+            document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+                const active = btn.dataset.tab === tabName;
+                btn.className = active
+                    ? 'admin-tab-btn rounded-t-xl bg-brand-navy px-5 py-2.5 text-xs font-bold text-white sm:text-sm'
+                    : 'admin-tab-btn rounded-t-xl bg-slate-100 px-5 py-2.5 text-xs font-bold text-slate-600 hover:bg-slate-200 sm:text-sm';
+            });
+            document.querySelectorAll('.admin-tab-content').forEach(panel => panel.classList.add('hidden'));
+            const panel = document.getElementById(`adminTabContent-${tabName}`);
+            if (panel) panel.classList.remove('hidden');
+        }
+
+        function populateContentManagerForms() {
+            const settings = getStoredSettings();
+            document.getElementById('editSchoolName').value = settings.name;
+            document.getElementById('editSchoolSub').value = settings.subtitle;
+            document.getElementById('editSchoolPhone').value = settings.phone;
+            document.getElementById('editSchoolEmail').value = settings.email;
+            document.getElementById('editSchoolAddress').value = settings.address;
+            document.getElementById('editHeroTagline').value = settings.heroTagline;
+            document.getElementById('editMission').value = settings.mission;
+            document.getElementById('editVision').value = settings.vision;
+            document.getElementById('editAdminPasscode').value = settings.adminPasscode || 'Lilyspring@2026';
+            document.getElementById('editWeb3FormsAccessKey').value = settings.web3FormsAccessKey || '';
+        }
+
+        function renderAdminApplicationsTable() {
+            const apps = getStoredApplications();
+            const search = (document.getElementById('adminSearchInput')?.value || '').toLowerCase();
+            const statusFilter = document.getElementById('adminStatusFilter')?.value || 'ALL';
+
+            document.getElementById('adminTotalCount').textContent = apps.length;
+            document.getElementById('adminPendingCount').textContent = apps.filter(app => app.status === 'Pending').length;
+            document.getElementById('adminApprovedCount').textContent = apps.filter(app => app.status === 'Approved').length;
+            document.getElementById('adminRejectedCount').textContent = apps.filter(app => app.status === 'Rejected').length;
+
+            const filtered = apps.filter(app => {
+                const matchesSearch = `${app.firstName} ${app.lastName} ${app.refCode} ${app.parentName}`.toLowerCase().includes(search);
+                const matchesStatus = statusFilter === 'ALL' || app.status === statusFilter;
+                return matchesSearch && matchesStatus;
+            });
+
+            const tbody = document.getElementById('adminApplicationsTbody');
+            if (!filtered.length) {
+                tbody.innerHTML = '<tr><td colspan="7" class="p-6 text-center text-slate-400">No applications match the search criteria.</td></tr>';
+                return;
+            }
+
+            tbody.innerHTML = filtered.map(app => {
+                let badgeClass = 'bg-amber-100 text-amber-800';
+                if (app.status === 'Approved') badgeClass = 'bg-emerald-100 text-emerald-800';
+                if (app.status === 'Rejected') badgeClass = 'bg-rose-100 text-rose-800';
+                if (app.status === 'Under Review') badgeClass = 'bg-blue-100 text-blue-800';
+                return `
+                    <tr class="hover:bg-purple-50/50 transition-colors">
+                        <td class="p-4 font-bold text-brand-navy">${app.refCode}</td>
+                        <td class="p-4">${app.firstName} ${app.lastName}</td>
+                        <td class="p-4">${app.classApplying}</td>
+                        <td class="p-4">${app.parentPhone}</td>
+                        <td class="p-4">${app.submittedAt || 'N/A'}</td>
+                        <td class="p-4"><span class="rounded-full px-2.5 py-1 text-[10px] font-bold ${badgeClass}">${app.status}</span></td>
+                        <td class="p-4 text-right"><button type="button" onclick="viewApplicationDetails('${app.refCode}')" class="rounded-lg bg-brand-navy px-3 py-1.5 text-[11px] font-bold text-white hover:bg-indigo-900">View</button></td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        function viewApplicationDetails(refCode) {
+            const apps = getStoredApplications();
+            const app = apps.find(a => a.refCode === refCode);
+            if (!app) return;
+
+            document.getElementById('appModalContent').innerHTML = `
+                <div class="space-y-5">
+                    <div>
+                        <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-accent">Application Review</div>
+                        <h3 class="mt-1 text-2xl font-bold text-brand-navy">${app.firstName} ${app.lastName}</h3>
+                    </div>
+                    <div class="grid gap-3 text-sm text-slate-700 sm:grid-cols-2">
+                        <div><strong>Reference:</strong> ${app.refCode}</div>
+                        <div><strong>Status:</strong> ${app.status}</div>
+                        <div><strong>Date of Birth:</strong> ${app.dob}</div>
+                        <div><strong>Gender:</strong> ${app.gender}</div>
+                        <div><strong>Class Applying:</strong> ${app.classApplying}</div>
+                        <div><strong>Previous School:</strong> ${app.prevSchool}</div>
+                        <div><strong>Last Class:</strong> ${app.lastClass}</div>
+                        <div><strong>Transfer Reason:</strong> ${app.transferReason}</div>
+                        <div><strong>Parent Name:</strong> ${app.parentName}</div>
+                        <div><strong>Parent Relation:</strong> ${app.parentRel}</div>
+                        <div><strong>Parent Phone:</strong> ${app.parentPhone}</div>
+                        <div><strong>Parent Email:</strong> ${app.parentEmail}</div>
+                        <div class="sm:col-span-2"><strong>Address:</strong> ${app.address}</div>
+                        <div><strong>Blood Group:</strong> ${app.bloodGroup}</div>
+                        <div><strong>Genotype:</strong> ${app.genotype}</div>
+                        <div class="sm:col-span-2"><strong>Medical Notes:</strong> ${app.medicalNotes}</div>
+                    </div>
+                    <div class="border-t border-slate-100 pt-4">
+                        <label class="mb-2 block text-xs font-bold text-slate-800">Update Application Status</label>
+                        <div class="flex gap-2">
+                            <select id="modalStatusSelect" class="flex-grow rounded-xl border border-slate-200 px-3 py-2 text-xs font-semibold">
+                                <option value="Pending" ${app.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                                <option value="Under Review" ${app.status === 'Under Review' ? 'selected' : ''}>Under Review</option>
+                                <option value="Approved" ${app.status === 'Approved' ? 'selected' : ''}>Approved</option>
+                                <option value="Rejected" ${app.status === 'Rejected' ? 'selected' : ''}>Rejected</option>
+                            </select>
+                            <button type="button" onclick="saveApplicationStatus('${app.refCode}')" class="rounded-xl bg-brand-accent px-5 py-2 text-xs font-bold text-white hover:bg-brand-accentHover">Save Status</button>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('appDetailsModal').classList.remove('hidden');
+            document.getElementById('appDetailsModal').classList.add('flex');
+        }
+
+        function saveApplicationStatus(refCode) {
+            const newStatus = document.getElementById('modalStatusSelect').value;
+            const apps = getStoredApplications();
+            const index = apps.findIndex(app => app.refCode === refCode);
+            if (index !== -1) {
+                apps[index].status = newStatus;
+                saveStoredApplications(apps);
+                renderAdminApplicationsTable();
+                closeAppDetailsModal();
+                showToast(`Application status updated to ${newStatus}`);
+            }
+        }
+
+        function closeAppDetailsModal() {
+            document.getElementById('appDetailsModal').classList.add('hidden');
+            document.getElementById('appDetailsModal').classList.remove('flex');
+        }
+
+        function renderAdminAnnouncementsList() {
+            const announcements = getStoredAnnouncements();
+            const list = document.getElementById('adminAnnouncementsList');
+            if (!announcements.length) {
+                list.innerHTML = '<p class="text-xs text-slate-400">No active announcements.</p>';
+                return;
+            }
+            list.innerHTML = announcements.map(item => `
+                <div class="flex items-center justify-between gap-4 rounded-xl border border-slate-100 bg-slate-50 p-3">
+                    <div>
+                        <div class="text-xs font-bold text-slate-800">${item.title}<span class="ml-2 text-[10px] font-semibold text-brand-violet">(${item.category})</span></div>
+                        <div class="text-[10px] text-slate-400">${item.date}</div>
+                    </div>
+                    <button type="button" onclick="deleteAnnouncement('${item.id}')" class="text-xs text-rose-600 hover:text-rose-800"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            `).join('');
+        }
+
+        function deleteAnnouncement(id) {
+            let announcements = getStoredAnnouncements();
+            announcements = announcements.filter(item => item.id !== id);
+            saveStoredAnnouncements(announcements);
+            renderAdminAnnouncementsList();
+            showToast('Announcement removed');
+        }
+
+        function saveSchoolContentSettings(event) {
+            event.preventDefault();
+            const newAdminPasscode = document.getElementById('editAdminPasscode').value.trim();
+            if (!newAdminPasscode || newAdminPasscode.length < 8) {
+                showToast('Admin passcode must be at least 8 characters long.', 'error');
+                return;
+            }
+
+            const settings = {
+                name: document.getElementById('editSchoolName').value,
+                subtitle: document.getElementById('editSchoolSub').value,
+                phone: document.getElementById('editSchoolPhone').value,
+                email: document.getElementById('editSchoolEmail').value,
+                address: document.getElementById('editSchoolAddress').value,
+                heroTagline: document.getElementById('editHeroTagline').value,
+                mission: document.getElementById('editMission').value,
+                vision: document.getElementById('editVision').value,
+                adminPasscode: newAdminPasscode,
+                web3FormsAccessKey: document.getElementById('editWeb3FormsAccessKey').value.trim()
+            };
+
+            saveStoredSettings(settings);
+            showToast('Website settings updated!');
+        }
+
+        function handleNewAnnouncement(event) {
+            event.preventDefault();
+            const announcements = getStoredAnnouncements();
+            const title = document.getElementById('annTitle').value.trim();
+            const body = document.getElementById('annBody').value.trim();
+            if (!title || !body) {
+                showToast('Announcement title and body are required.', 'error');
+                return;
+            }
+
+            const newAnn = {
+                id: `ann-${Date.now()}`,
+                title,
+                category: document.getElementById('annCategory').value,
+                date: document.getElementById('annDate').value || new Date().toISOString().split('T')[0],
+                body
+            };
+
+            announcements.unshift(newAnn);
+            saveStoredAnnouncements(announcements);
+            renderAdminAnnouncementsList();
+            document.getElementById('announcementForm').reset();
+            showToast('Announcement published successfully!');
+        }
+
+        function verifyAdminPasscode(event) {
+            event.preventDefault();
+            const pass = document.getElementById('adminPassInput').value.trim();
+            const settings = getStoredSettings();
+            const validPasscode = (settings.adminPasscode || 'Lilyspring@2026').trim();
+
+            if (pass && pass.length >= 8 && pass === validPasscode) {
+                sessionStorage.setItem('lis_admin_session', 'true');
+                document.getElementById('adminAuthLock').classList.add('hidden');
+                document.getElementById('adminDashboard').classList.remove('hidden');
+                populateContentManagerForms();
+                renderAdminApplicationsTable();
+                renderAdminAnnouncementsList();
+                showToast('Admin session unlocked!');
+            } else {
+                showToast('Invalid Admin Passcode!', 'error');
+            }
+        }
+
+        function logoutAdmin() {
+            sessionStorage.removeItem('lis_admin_session');
+            document.getElementById('adminPassInput').value = '';
+            document.getElementById('adminDashboard').classList.add('hidden');
+            document.getElementById('adminAuthLock').classList.remove('hidden');
+            showToast('Admin session locked');
+        }
+
+        document.getElementById('adminLoginForm').addEventListener('submit', verifyAdminPasscode);
+        document.getElementById('logoutAdminBtn').addEventListener('click', logoutAdmin);
+        document.querySelectorAll('.admin-tab-btn').forEach(btn => btn.addEventListener('click', () => switchAdminTab(btn.dataset.tab)));
+        document.getElementById('settingsForm').addEventListener('submit', saveSchoolContentSettings);
+        document.getElementById('announcementForm').addEventListener('submit', handleNewAnnouncement);
+        document.getElementById('closeModalBtn').addEventListener('click', closeAppDetailsModal);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            populateContentManagerForms();
+            renderAdminApplicationsTable();
+            renderAdminAnnouncementsList();
+            if (sessionStorage.getItem('lis_admin_session') === 'true') {
+                document.getElementById('adminAuthLock').classList.add('hidden');
+                document.getElementById('adminDashboard').classList.remove('hidden');
+            }
+        });
+    </script>
+
+</body>
+</html>
